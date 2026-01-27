@@ -59,7 +59,7 @@ export default function Roadmap() {
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative">
           {/* Line */}
-          <div className="absolute top-6 left-0 right-0 h-0.5 bg-border" />
+          <div className="absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-lime/50 via-primary/50 to-white/10" />
 
           <div className="grid grid-cols-4 gap-8">
             {roadmapItems.map((item, index) => (
@@ -75,9 +75,9 @@ export default function Roadmap() {
                 <div
                   className={cn(
                     'absolute top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-2 z-10',
-                    item.status === 'completed' && 'bg-green-500 border-green-500',
+                    item.status === 'completed' && 'bg-lime border-lime shadow-lg shadow-lime/50',
                     item.status === 'active' && 'bg-primary border-primary shadow-lg shadow-primary/50',
-                    item.status === 'upcoming' && 'bg-background-card border-border'
+                    item.status === 'upcoming' && 'glass border-white/20'
                   )}
                 />
 
@@ -104,7 +104,7 @@ export default function Roadmap() {
         {/* Mobile Timeline */}
         <div className="lg:hidden relative pl-8">
           {/* Line */}
-          <div className="absolute top-0 bottom-0 left-3 w-0.5 bg-border" />
+          <div className="absolute top-0 bottom-0 left-3 w-0.5 bg-gradient-to-b from-lime/50 via-primary/50 to-white/10" />
 
           <div className="space-y-10">
             {roadmapItems.map((item, index) => (
@@ -120,9 +120,9 @@ export default function Roadmap() {
                 <div
                   className={cn(
                     'absolute -left-5 top-0 w-4 h-4 rounded-full border-2',
-                    item.status === 'completed' && 'bg-green-500 border-green-500',
-                    item.status === 'active' && 'bg-primary border-primary',
-                    item.status === 'upcoming' && 'bg-background-card border-border'
+                    item.status === 'completed' && 'bg-lime border-lime shadow-md shadow-lime/30',
+                    item.status === 'active' && 'bg-primary border-primary shadow-md shadow-primary/30',
+                    item.status === 'upcoming' && 'glass border-white/20'
                   )}
                 />
 

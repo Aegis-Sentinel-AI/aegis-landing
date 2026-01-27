@@ -38,14 +38,14 @@ export default function Terminal() {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="w-full max-w-lg mx-auto bg-background-elevated border border-border rounded-xl overflow-hidden shadow-2xl"
+      className="w-full max-w-lg mx-auto glass rounded-xl overflow-hidden shadow-2xl border border-white/10"
     >
       {/* Header */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-background-card border-b border-border">
+      <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
         <div className="flex gap-2">
           <div className="w-3 h-3 rounded-full bg-red-500" />
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <div className="w-3 h-3 rounded-full bg-green-500" />
+          <div className="w-3 h-3 rounded-full bg-lime" />
         </div>
         <span className="ml-auto text-xs font-mono text-zinc-500">sentinel-engine</span>
       </div>
@@ -60,7 +60,7 @@ export default function Terminal() {
             transition={{ duration: 0.3 }}
             className={`flex gap-2 ${
               line.type === 'highlight'
-                ? 'mt-3 px-3 py-2 bg-green-500/10 rounded-lg'
+                ? 'mt-3 px-3 py-2 bg-lime/10 border border-lime/20 rounded-lg'
                 : ''
             }`}
           >
@@ -78,7 +78,7 @@ export default function Terminal() {
             )}
             {line.type === 'success' && (
               <>
-                <span className="text-green-500">✓</span>
+                <span className="text-lime">✓</span>
                 <span className="text-zinc-400">{line.content.slice(2)}</span>
               </>
             )}
@@ -86,7 +86,7 @@ export default function Terminal() {
               <>
                 <span>🛡️</span>
                 <span className="text-zinc-300">
-                  Security Status: <span className="text-green-500 font-semibold">VERIFIED CLEAN</span>
+                  Security Status: <span className="text-lime font-semibold">VERIFIED CLEAN</span>
                 </span>
               </>
             )}

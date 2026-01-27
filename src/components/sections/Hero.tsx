@@ -16,9 +16,19 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center pt-20 lg:pt-0 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-glow pointer-events-none" />
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      
+      {/* Animated Grid Overlay */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(rgba(0, 102, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.05) 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
+        }} />
+      </div>
+      
+      {/* Glowing Orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-pulse-slow" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-lime/5 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
@@ -34,11 +44,11 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background-card border border-border mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-lime" />
               </span>
               <span className="text-sm text-zinc-400">Now in Private Beta</span>
             </motion.div>
@@ -117,10 +127,10 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1 }}
-              className="absolute -top-4 -right-4 bg-background-card border border-border rounded-lg px-3 py-2 shadow-lg"
+              className="absolute -top-4 -right-4 glass rounded-lg px-3 py-2 shadow-lg"
             >
               <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-green-500" />
+                <CheckCircle2 className="w-4 h-4 text-lime" />
                 <span className="text-zinc-400">GDPR Compliant</span>
               </div>
             </motion.div>
@@ -129,10 +139,10 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.2 }}
-              className="absolute -bottom-4 -left-4 bg-background-card border border-border rounded-lg px-3 py-2 shadow-lg"
+              className="absolute -bottom-4 -left-4 glass rounded-lg px-3 py-2 shadow-lg"
             >
               <div className="flex items-center gap-2 text-sm">
-                <Zap className="w-4 h-4 text-yellow-500" />
+                <Zap className="w-4 h-4 text-primary" />
                 <span className="text-zinc-400">&lt;2s Proof Time</span>
               </div>
             </motion.div>

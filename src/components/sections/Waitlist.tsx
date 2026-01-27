@@ -25,18 +25,21 @@ export default function Waitlist() {
   }
 
   return (
-    <section id="waitlist" className="py-24 lg:py-32 bg-background-elevated">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="waitlist" className="py-24 lg:py-32 relative">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-2xl mx-auto"
         >
-          <div className="relative card text-center p-10 lg:p-16 overflow-hidden">
+          <div className="relative glass border border-white/10 rounded-2xl text-center p-10 lg:p-16 overflow-hidden">
             {/* Glow effect */}
-            <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-accent/20 rounded-full blur-3xl" />
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/30 rounded-full blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-lime/20 rounded-full blur-3xl" />
 
             <div className="relative">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -56,7 +59,7 @@ export default function Waitlist() {
                     placeholder="Enter your work email"
                     required
                     disabled={status === 'loading' || status === 'success'}
-                    className="flex-1 px-5 py-4 bg-background border border-border rounded-lg text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                    className="flex-1 px-5 py-4 glass border border-white/10 rounded-lg text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary/50 transition-colors disabled:opacity-50"
                   />
                   <button
                     type="submit"
@@ -71,7 +74,7 @@ export default function Waitlist() {
                     )}
                     {status === 'success' && (
                       <>
-                        <CheckCircle2 className="w-5 h-5" />
+                        <CheckCircle2 className="w-5 h-5 text-lime" />
                         You're In!
                       </>
                     )}

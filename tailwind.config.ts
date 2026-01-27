@@ -9,17 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0f',
-        'background-elevated': '#12121a',
-        'background-card': '#1a1a24',
-        border: '#2a2a3a',
-        'border-light': '#3a3a4a',
+        // Dark Mode Enterprise Palette
+        background: '#121212',
+        'background-elevated': '#1a1a1a',
+        'background-card': '#1e1e1e',
+        border: '#2a2a2a',
+        'border-light': '#3a3a3a',
+        // Electric Cobalt Blue - Primary accent
         primary: {
-          DEFAULT: '#6366f1',
-          hover: '#818cf8',
-          dark: '#4f46e5',
+          DEFAULT: '#0066FF',
+          hover: '#3385FF',
+          dark: '#0052CC',
+          light: '#4D9FFF',
         },
-        accent: '#8b5cf6',
+        // Cyber-Lime - Success states
+        success: {
+          DEFAULT: '#ADFF2F',
+          dark: '#8FCC26',
+          light: '#C4FF66',
+        },
+        accent: '#0066FF',
+        lime: '#ADFF2F',
       },
       fontFamily: {
         sans: ['var(--font-inter)'],
@@ -29,6 +39,7 @@ const config: Config = {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'gradient': 'gradient 8s linear infinite',
         'float': 'float 6s ease-in-out infinite',
+        'glow': 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
         gradient: {
@@ -39,11 +50,23 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        glow: {
+          '0%': { boxShadow: '0 0 20px rgba(0, 102, 255, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(0, 102, 255, 0.6)' },
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%)',
-        'gradient-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.3), transparent)',
+        'gradient-primary': 'linear-gradient(135deg, #0066FF 0%, #0052CC 50%, #003D99 100%)',
+        'gradient-lime': 'linear-gradient(135deg, #ADFF2F 0%, #8FCC26 100%)',
+        'gradient-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 102, 255, 0.25), transparent)',
+        'grid-pattern': 'linear-gradient(rgba(0, 102, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.03) 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        'grid': '50px 50px',
+      },
+      backdropBlur: {
+        'glass': '20px',
       },
     },
   },

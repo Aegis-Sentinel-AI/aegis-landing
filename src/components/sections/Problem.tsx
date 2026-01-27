@@ -44,10 +44,10 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="card card-hover"
+              className="card card-hover group"
             >
-              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-4">
-                <problem.icon className="w-6 h-6 text-red-500" />
+              <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors">
+                <problem.icon className="w-6 h-6 text-red-400" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{problem.title}</h3>
               <p className="text-sm text-zinc-400">{problem.description}</p>

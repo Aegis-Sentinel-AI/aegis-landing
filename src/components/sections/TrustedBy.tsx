@@ -11,8 +11,11 @@ const badges = [
 
 export default function TrustedBy() {
   return (
-    <section className="py-16 border-y border-border bg-background-elevated/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 border-y border-white/5 relative">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-lime/5 pointer-events-none" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -35,7 +38,7 @@ export default function TrustedBy() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex items-center gap-2 px-5 py-3 bg-background-card border border-border rounded-lg"
+              className="flex items-center gap-2 px-5 py-3 glass rounded-lg hover:bg-white/10 transition-all"
             >
               <span className="text-xl">{badge.icon}</span>
               <span className="text-sm font-medium">{badge.label}</span>

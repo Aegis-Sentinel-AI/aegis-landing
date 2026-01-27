@@ -43,8 +43,11 @@ const distribution = [
 
 export default function Tokenomics() {
   return (
-    <section id="tokenomics" className="py-24 lg:py-32 bg-background-elevated">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="tokenomics" className="py-24 lg:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lime/5 to-transparent pointer-events-none" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="$AEGIS Token"
           title="Tokenomics"
@@ -82,9 +85,9 @@ export default function Tokenomics() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-4 p-4 bg-background border border-border rounded-xl"
+                  className="flex gap-4 p-4 glass rounded-xl border border-white/5 hover:border-primary/30 transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center flex-shrink-0">
                     <utility.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
@@ -112,7 +115,7 @@ export default function Tokenomics() {
                 whileInView={{ opacity: 1, width: '100%' }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative flex items-center justify-between p-4 bg-background rounded-lg overflow-hidden"
+                className="relative flex items-center justify-between p-4 glass rounded-lg border border-white/5 overflow-hidden"
               >
                 <div
                   className="absolute left-0 top-0 bottom-0 opacity-20"

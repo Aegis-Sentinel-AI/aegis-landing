@@ -39,8 +39,11 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 lg:py-32 bg-background-elevated">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-24 lg:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="Features"
           title="Security Reimagined"
@@ -55,11 +58,11 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="group relative bg-background border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
+              className="group card card-hover"
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <feature.icon className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20">
+                <feature.icon className="w-8 h-8 text-primary" />
               </div>
 
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
@@ -68,7 +71,7 @@ export default function Features() {
               <ul className="space-y-3">
                 {feature.benefits.map((benefit, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
-                    <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    <Check className="w-4 h-4 text-lime flex-shrink-0" />
                     {benefit}
                   </li>
                 ))}

@@ -28,17 +28,17 @@ export default function CodeBlock({ code, language = 'python', title }: CodeBloc
   }
 
   return (
-    <div className="bg-background-card border border-border rounded-xl overflow-hidden">
+    <div className="glass rounded-xl overflow-hidden border border-white/10">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-background-elevated border-b border-border">
+      <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
         <span className="text-sm text-zinc-400">{title || language}</span>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-400 bg-background-card border border-border rounded-md hover:text-white hover:border-border-light transition-colors"
+          className="flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-400 glass rounded-md hover:text-white hover:bg-white/10 transition-colors"
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5" />
+              <Check className="w-3.5 h-3.5 text-lime" />
               Copied!
             </>
           ) : (

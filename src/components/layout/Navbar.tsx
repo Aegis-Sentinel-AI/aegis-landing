@@ -31,7 +31,7 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled 
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border' 
+          ? 'glass border-b border-white/10' 
           : 'bg-transparent'
       )}
     >
@@ -86,7 +86,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background-elevated border-b border-border"
+            className="lg:hidden glass border-b border-white/10"
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
