@@ -2,26 +2,45 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
 
 export default function Waitlist() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const [waitlistCount, setWaitlistCount] = useState(847)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    setErrorMessage('')
 
-    // Simulate API call - replace with actual endpoint
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
 
-    // Success
-    setStatus('success')
-    setWaitlistCount((prev) => prev + 1)
-    setEmail('')
+      const data = await response.json()
 
-    setTimeout(() => setStatus('idle'), 4000)
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to join waitlist')
+      }
+
+      // Success
+      setStatus('success')
+      setWaitlistCount((prev) => prev + 1)
+      setEmail('')
+
+      setTimeout(() => setStatus('idle'), 4000)
+    } catch (error) {
+      setStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Something went wrong')
+      setTimeout(() => setStatus('idle'), 4000)
+    }
   }
 
   return (
@@ -89,6 +108,12 @@ export default function Waitlist() {
                 <p className="text-xs text-zinc-500 mt-3">
                   No spam. Unsubscribe anytime.
                 </p>
+                {status === 'error' && (
+                  <p className="text-xs text-red-400 mt-2 flex items-center justify-center gap-1">
+                    <AlertCircle className="w-3 h-3" />
+                    {errorMessage}
+                  </p>
+                )}
               </form>
 
               <div className="flex items-center justify-center gap-4 text-sm text-zinc-400">
