@@ -3,6 +3,11 @@ import { ImageResponse } from '@vercel/og'
 export const runtime = 'edge'
 
 export async function GET() {
+  // Fetch the logo image
+  const logoData = await fetch(
+    new URL('/logo.jpg', 'https://aegissentinel.online')
+  ).then((res) => res.arrayBuffer())
+
   return new ImageResponse(
     (
       <div
@@ -17,51 +22,16 @@ export async function GET() {
           backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(191, 255, 0, 0.1) 0%, transparent 40%)',
         }}
       >
-        {/* Shield Icon */}
-        <div
+        {/* Logo */}
+        <img
+          src={logoData as unknown as string}
+          width={200}
+          height={200}
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             marginBottom: 40,
+            borderRadius: 20,
           }}
-        >
-          <svg
-            width="120"
-            height="140"
-            viewBox="0 0 60 70"
-            fill="none"
-          >
-            {/* Shield body */}
-            <path
-              d="M30 5L5 15V35C5 52 30 65 30 65C30 65 55 52 55 35V15L30 5Z"
-              fill="url(#shieldGradient)"
-              stroke="#BFFF00"
-              strokeWidth="2"
-            />
-            {/* Inner shield detail */}
-            <path
-              d="M30 12L12 20V35C12 48 30 58 30 58C30 58 48 48 48 35V20L30 12Z"
-              fill="rgba(191, 255, 0, 0.1)"
-              stroke="rgba(191, 255, 0, 0.3)"
-              strokeWidth="1"
-            />
-            {/* Center lock/checkmark */}
-            <path
-              d="M22 35L28 41L40 29"
-              stroke="#BFFF00"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <defs>
-              <linearGradient id="shieldGradient" x1="30" y1="5" x2="30" y2="65" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#1a1a2e" />
-                <stop offset="100%" stopColor="#0A0A0F" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        />
 
         {/* Title */}
         <div
