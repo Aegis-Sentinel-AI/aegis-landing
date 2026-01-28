@@ -69,9 +69,9 @@ export default function Tokenomics() {
           <div className="grid sm:grid-cols-3 gap-6 text-center">
             {tokenMetrics.map((metric, index) => (
               <div key={index} className="space-y-1">
-                <div className="text-sm text-zinc-500">{metric.label}</div>
-                <div className="text-2xl lg:text-3xl font-bold gradient-text">{metric.value}</div>
-                <div className="text-xs text-zinc-400">{metric.suffix}</div>
+                <div className="text-sm font-mono uppercase tracking-wider text-zinc-500">{metric.label}</div>
+                <div className="text-2xl lg:text-3xl font-mono font-bold tabular-nums gradient-text">{metric.value}</div>
+                <div className="text-xs font-mono text-zinc-400">{metric.suffix}</div>
               </div>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default function Tokenomics() {
                   <utility.icon className="w-7 h-7" style={{ color: utility.color }} />
                 </div>
                 <div 
-                  className="text-3xl font-bold"
+                  className="text-3xl font-mono font-bold tabular-nums"
                   style={{ color: utility.color }}
                 >
                   {utility.percentage}
@@ -117,8 +117,8 @@ export default function Tokenomics() {
               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                 {utility.stats.map((stat, i) => (
                   <div key={i}>
-                    <div className="text-lg font-bold">{stat.value}</div>
-                    <div className="text-xs text-zinc-500">{stat.label}</div>
+                    <div className="text-lg font-mono font-bold tabular-nums">{stat.value}</div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">{stat.label}</div>
                   </div>
                 ))}
               </div>

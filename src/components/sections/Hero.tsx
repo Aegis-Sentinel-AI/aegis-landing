@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-40">
         <div className="absolute inset-0" style={{
           backgroundImage: 'linear-gradient(rgba(0, 102, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.05) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
+          backgroundSize: '48px 48px'
         }} />
       </div>
       
@@ -106,8 +106,8 @@ export default function Hero() {
             >
               {stats.map((stat, index) => (
                 <div key={index}>
-                  <div className="text-2xl lg:text-3xl font-bold">{stat.value}</div>
-                  <div className="text-sm text-zinc-500">{stat.label}</div>
+                  <div className="text-2xl lg:text-3xl font-mono font-bold tabular-nums">{stat.value}</div>
+                  <div className="text-sm text-zinc-500 font-mono uppercase tracking-wider">{stat.label}</div>
                 </div>
               ))}
             </motion.div>

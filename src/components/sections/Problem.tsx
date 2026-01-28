@@ -59,8 +59,8 @@ export default function Problem() {
                   <threat.icon className="w-7 h-7 text-red-400" />
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-red-400">{threat.stat}</div>
-                  <div className="text-xs text-zinc-500">{threat.statLabel}</div>
+                  <div className="text-2xl font-mono font-bold text-red-400 tabular-nums">{threat.stat}</div>
+                  <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">{threat.statLabel}</div>
                 </div>
               </div>
               

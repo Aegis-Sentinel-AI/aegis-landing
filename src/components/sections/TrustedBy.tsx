@@ -49,7 +49,7 @@ export default function TrustedBy() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+          <h3 className="text-sm font-mono font-semibold text-zinc-500 uppercase tracking-widest mb-2">
             Compliance Badge Bar
           </h3>
           <p className="text-lg text-zinc-400">
@@ -81,9 +81,9 @@ export default function TrustedBy() {
               </div>
               
               {/* Label */}
-              <div className="text-xl font-bold mb-0.5">{badge.label}</div>
+              <div className="text-xl font-mono font-bold mb-0.5">{badge.label}</div>
               <div 
-                className="text-sm font-medium mb-2"
+                className="text-sm font-mono font-medium uppercase tracking-wide mb-2"
                 style={{ color: badge.color }}
               >
                 {badge.sublabel}

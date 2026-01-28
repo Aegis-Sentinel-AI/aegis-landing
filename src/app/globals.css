@@ -5,15 +5,29 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   }
   
   body {
-    @apply bg-background text-white;
+    @apply bg-background text-white font-sans antialiased;
     background-image: 
       linear-gradient(rgba(0, 102, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 102, 255, 0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 48px 48px; /* Swiss grid: 6 × 8px */
     background-position: -1px -1px;
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+  }
+  
+  p, li {
+    @apply font-sans;
+  }
+  
+  code, pre, kbd, samp {
+    @apply font-mono;
   }
 
   ::selection {
@@ -127,6 +141,39 @@
   
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Technical/Data Typography - JetBrains Mono */
+  .text-data {
+    @apply font-mono tracking-wider;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .text-data-sm {
+    @apply font-mono text-xs tracking-wider uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .text-data-lg {
+    @apply font-mono text-lg tracking-wide;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* Technical labels */
+  .label-technical {
+    @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
+  }
+  
+  /* Stat/metric values */
+  .stat-value {
+    @apply font-mono font-bold tracking-tight;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* Code/hash styling */
+  .text-hash {
+    @apply font-mono text-sm tracking-wider text-zinc-400;
+    word-break: break-all;
   }
 }
 
