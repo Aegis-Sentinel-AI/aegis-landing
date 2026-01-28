@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
     description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification.',
-    url: 'https://aegissentinel.no',
+    url: 'https://aegissentinel.online',
     siteName: 'AegisSentinel',
     images: [
       {
-        url: 'https://aegissentinel.no/og-image.png',
+        url: 'https://aegissentinel.online/og-image.png',
         width: 1200,
         height: 630,
       },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
     description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification.',
     site: '@AegisSentinel',
-    images: ['https://aegissentinel.no/og-image.png'],
+    images: ['https://aegissentinel.online/og-image.png'],
   },
   robots: {
     index: true,

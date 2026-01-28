@@ -2,7 +2,7 @@
 
 A high-converting landing page built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**.
 
-🌐 Live: [aegissentinel.no](https://aegissentinel.no)
+🌐 Live: [aegissentinel.online](https://aegissentinel.online)
 
 ## ✨ Features
 

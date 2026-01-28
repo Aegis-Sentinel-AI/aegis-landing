@@ -18,7 +18,7 @@ const footerLinks = {
     { label: 'About', href: '/about' },
     { label: 'Blog', href: '/blog' },
     { label: 'Careers', href: '/careers' },
-    { label: 'Contact', href: 'mailto:contact@aegissentinel.no' },
+    { label: 'Contact', href: 'mailto:contact@aegissentinel.online' },
   ],
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
