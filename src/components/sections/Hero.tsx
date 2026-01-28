@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Zap, Shield } from 'lucide-react'
-import Terminal from '@/components/ui/Terminal'
+import AnimatedShield from '@/components/ui/AnimatedShield'
 
 const stats = [
   { value: '<100ms', label: 'Detection Latency' },
@@ -60,9 +60,9 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6"
             >
-              AI-Powered Security
+              Automated AI Defense
               <br />
-              <span className="gradient-text">Verified On-Chain</span>
+              <span className="gradient-text">for the Decentralized Era</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -72,9 +72,9 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-zinc-400 max-w-xl mb-8"
             >
-              AegisSentinel combines real-time AI threat detection with Zero-Knowledge proofs 
-              and L2 blockchain verification — delivering enterprise security that's 
-              GDPR-compliant and cryptographically verifiable.
+              AegisSentinel deploys autonomous AI agents that detect threats in real-time, 
+              generate Zero-Knowledge proofs, and anchor verifiable security verdicts 
+              on L2 — all while keeping your data private and GDPR-compliant.
             </motion.p>
 
             {/* CTAs */}
@@ -113,39 +113,14 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Terminal */}
+          {/* Animated Shield */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
             className="relative lg:order-last"
           >
-            <Terminal />
-            
-            {/* Floating badges */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 }}
-              className="absolute -top-4 -right-4 glass rounded-lg px-3 py-2 shadow-lg"
-            >
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-lime" />
-                <span className="text-zinc-400">GDPR Compliant</span>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2 }}
-              className="absolute -bottom-4 -left-4 glass rounded-lg px-3 py-2 shadow-lg"
-            >
-              <div className="flex items-center gap-2 text-sm">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="text-zinc-400">&lt;2s Proof Time</span>
-              </div>
-            </motion.div>
+            <AnimatedShield />
           </motion.div>
         </div>
       </div>
