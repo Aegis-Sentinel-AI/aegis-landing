@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification. GDPR & MiCA compliant.',
   keywords: ['cybersecurity', 'AI', 'blockchain', 'zero-knowledge proofs', 'GDPR', 'MiCA', 'enterprise security'],
   authors: [{ name: 'AegisSentinel' }],
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.svg',
+  },
   openGraph: {
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
     description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification.',
@@ -24,9 +30,10 @@ export const metadata: Metadata = {
     siteName: 'AegisSentinel',
     images: [
       {
-        url: 'https://aegissentinel.online/og-image.png',
+        url: 'https://aegissentinel.online/og',
         width: 1200,
         height: 630,
+        alt: 'AegisSentinel - Automated AI Defense for the Decentralized Era',
       },
     ],
     locale: 'en_US',
@@ -37,7 +44,7 @@ export const metadata: Metadata = {
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
     description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification.',
     site: '@AegisSentinel',
-    images: ['https://aegissentinel.online/og-image.png'],
+    images: ['https://aegissentinel.online/og'],
   },
   robots: {
     index: true,

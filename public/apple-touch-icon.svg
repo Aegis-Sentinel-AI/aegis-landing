@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="10" x2="90" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="90" y1="20" x2="90" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BFFF00"/>
+      <stop offset="100%" stop-color="#8BC34A"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#0A0A0F"/>
+  <!-- Shield body -->
+  <path d="M90 25L30 48V90C30 130 90 155 90 155C90 155 150 130 150 90V48L90 25Z" fill="url(#bg)" stroke="url(#accent)" stroke-width="4"/>
+  <!-- Inner glow -->
+  <path d="M90 38L42 56V90C42 122 90 143 90 143C90 143 138 122 138 90V56L90 38Z" fill="rgba(191,255,0,0.1)"/>
+  <!-- Checkmark -->
+  <path d="M60 95L80 115L120 75" stroke="#BFFF00" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
