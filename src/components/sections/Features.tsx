@@ -54,26 +54,57 @@ export default function Features() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ 
+                delay: index * 0.15,
+                duration: 0.6,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
               className="group card card-hover"
             >
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20">
+              <motion.div 
+                className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20"
+                whileHover={{ rotate: [0, -10, 10, 0] }}
+                transition={{ duration: 0.5 }}
+              >
                 <feature.icon className="w-8 h-8 text-primary" />
-              </div>
+              </motion.div>
 
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-zinc-400 mb-6">{feature.description}</p>
+              <motion.h3 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 + 0.2 }}
+                className="text-xl font-semibold mb-3"
+              >
+                {feature.title}
+              </motion.h3>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 + 0.3 }}
+                className="text-zinc-400 mb-6"
+              >
+                {feature.description}
+              </motion.p>
 
               <ul className="space-y-3">
                 {feature.benefits.map((benefit, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
+                  <motion.li 
+                    key={i} 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + 0.4 + i * 0.1 }}
+                    className="flex items-center gap-3 text-sm text-zinc-400"
+                  >
                     <Check className="w-4 h-4 text-lime flex-shrink-0" />
                     {benefit}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>

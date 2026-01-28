@@ -10,21 +10,38 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ label, title, subtitle }: SectionHeaderProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center max-w-2xl mx-auto mb-16"
-    >
+    <div className="text-center max-w-2xl mx-auto mb-16">
       {label && (
-        <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+        <motion.span 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4"
+        >
           {label}
-        </span>
+        </motion.span>
       )}
-      <h2 className="text-3xl lg:text-4xl font-bold mb-4">{title}</h2>
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+        className="text-3xl lg:text-4xl font-bold mb-4"
+      >
+        {title}
+      </motion.h2>
       {subtitle && (
-        <p className="text-lg text-zinc-400">{subtitle}</p>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-lg text-zinc-400"
+        >
+          {subtitle}
+        </motion.p>
       )}
-    </motion.div>
+    </div>
   )
 }

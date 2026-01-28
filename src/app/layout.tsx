@@ -52,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="bg-background text-white antialiased">
+      <body className="bg-background text-white antialiased relative">
         {children}
       </body>
     </html>
