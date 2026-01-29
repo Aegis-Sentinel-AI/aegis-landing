@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'AegisSentinel' }],
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/Favicon.png', type: 'image/png' },
     ],
-    apple: '/apple-touch-icon.svg',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'AegisSentinel',
     images: [
       {
-        url: 'https://aegissentinel.online/og',
+        url: 'https://aegissentinel.online/OG-Image.png',
         width: 1200,
         height: 630,
         alt: 'AegisSentinel - Automated AI Defense for the Decentralized Era',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
     description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification.',
     site: '@AegisSentinel',
-    images: ['https://aegissentinel.online/og'],
+    images: ['https://aegissentinel.online/OG-Image.png'],
   },
   robots: {
     index: true,
