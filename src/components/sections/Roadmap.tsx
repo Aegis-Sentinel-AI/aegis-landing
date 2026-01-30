@@ -17,22 +17,22 @@ const roadmapItems = [
   },
   {
     quarter: 'Q2 2026',
-    title: 'Private Beta',
+    title: 'Presale Launch',
     status: 'active',
     items: [
-      { label: 'Testnet deployment', done: true },
-      { label: 'Enterprise pilot program', done: false },
+      { label: 'PinkSale presale launch', done: false },
       { label: 'Security audits', done: false },
+      { label: 'Enterprise pilot program', done: false },
     ],
   },
   {
     quarter: 'Q3 2026',
-    title: 'Public Launch',
+    title: 'Token Launch',
     status: 'upcoming',
     items: [
+      { label: 'Uniswap public launch', done: false },
       { label: 'Mainnet deployment', done: false },
-      { label: 'Token Generation Event', done: false },
-      { label: 'DEX listings', done: false },
+      { label: 'CEX listings', done: false },
     ],
   },
   {

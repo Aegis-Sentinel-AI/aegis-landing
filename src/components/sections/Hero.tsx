@@ -50,7 +50,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-lime" />
               </span>
-              <span className="text-sm text-zinc-400">Now in Private Beta</span>
+              <span className="text-sm text-zinc-400">Presale Coming Soon</span>
             </motion.div>
 
             {/* Headline */}

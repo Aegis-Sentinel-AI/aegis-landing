@@ -62,11 +62,11 @@ export default function Waitlist() {
 
             <div className="relative">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Join the Private Beta
+                Join the Presale Waitlist
               </h2>
               <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-                Be among the first enterprises to experience AI-verified cybersecurity. 
-                Limited spots available.
+                Get early access to the $SENTINEL token presale on PinkSale. 
+                Exclusive pricing for waitlist members.
               </p>
 
               <form onSubmit={handleSubmit} className="mb-6">
