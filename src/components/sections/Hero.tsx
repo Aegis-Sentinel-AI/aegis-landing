@@ -89,7 +89,7 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
-                href="https://aegis-docs-site.vercel.app/whitepaper"
+                href="https://aegis-docs-site-two.vercel.app/whitepaper"
                 target="_blank"
                 className="btn-secondary text-base px-8 py-4"
               >

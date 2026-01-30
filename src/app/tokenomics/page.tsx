@@ -605,7 +605,7 @@ export default function TokenomicsPage() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a 
-                href="https://aegis-docs-site.vercel.app/whitepaper" 
+                href="https://aegis-docs-site-two.vercel.app/whitepaper" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
