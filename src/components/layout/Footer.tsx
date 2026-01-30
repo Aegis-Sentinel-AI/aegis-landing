@@ -29,7 +29,7 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: Twitter, href: 'https://twitter.com/AegisSentinel', label: 'Twitter' },
+  { icon: Twitter, href: 'https://x.com/AegisSentinalAi', label: 'X' },
   { icon: MessageCircle, href: 'https://discord.gg/aegissentinel', label: 'Discord' },
   { icon: Github, href: 'https://github.com/Aegis-Sentinel-AI', label: 'GitHub' },
 ]
