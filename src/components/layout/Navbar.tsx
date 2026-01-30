@@ -10,7 +10,7 @@ const navLinks = [
   { href: '#features', label: 'Features' },
   { href: '#how-it-works', label: 'How It Works' },
   { href: '#tokenomics', label: 'Tokenomics' },
-  { href: 'https://docs.aegissentinel.online', label: 'Docs', external: true },
+  { href: 'https://aegis-docs-site.vercel.app', label: 'Docs', external: true },
   { href: 'https://github.com/Aegis-Sentinel-AI', label: 'GitHub', external: true },
 ]
 

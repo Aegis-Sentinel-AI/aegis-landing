@@ -9,8 +9,8 @@ const footerLinks = {
     { label: 'Roadmap', href: '#roadmap' },
   ],
   developers: [
-    { label: 'Documentation', href: 'https://docs.aegissentinel.online', external: true },
-    { label: 'API Reference', href: 'https://docs.aegissentinel.online/api-reference', external: true },
+    { label: 'Documentation', href: 'https://aegis-docs-site.vercel.app', external: true },
+    { label: 'API Reference', href: 'https://aegis-docs-site.vercel.app/api-reference', external: true },
     { label: 'GitHub', href: 'https://github.com/Aegis-Sentinel-AI', external: true },
     { label: 'Contributing', href: 'https://github.com/Aegis-Sentinel-AI/aegis-docs/blob/main/CONTRIBUTING.md', external: true },
   ],
@@ -23,7 +23,7 @@ const footerLinks = {
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
-    { label: 'Compliance', href: 'https://docs.aegissentinel.online/compliance', external: true },
+    { label: 'Compliance', href: 'https://aegis-docs-site.vercel.app/compliance', external: true },
     { label: 'Security', href: 'https://github.com/Aegis-Sentinel-AI/aegis-docs/security/policy', external: true },
   ],
 }

@@ -134,7 +134,7 @@ export default function Tokenomics() {
           className="text-center"
         >
           <a
-            href="https://docs.aegissentinel.online/tokenomics"
+            href="https://aegis-docs-site.vercel.app/tokenomics"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex"
