@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AegisSentinel — AI-Driven Cybersecurity Protocol',
     description: 'Next-generation cybersecurity combining AI threat detection, Zero-Knowledge proofs, and L2 blockchain verification.',
-    site: '@AegisSentinalAi',
+    site: '@AegisSentinelAi',
     images: ['https://aegissentinel.online/OG-Image.png'],
   },
   robots: {
