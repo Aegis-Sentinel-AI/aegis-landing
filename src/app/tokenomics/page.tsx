@@ -7,6 +7,8 @@ import {
   Zap, ArrowUpRight, Clock, Target, DollarSign
 } from 'lucide-react'
 import Link from 'next/link'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 // Token Sale Structure
 const tokenSale = {
@@ -110,6 +112,8 @@ export default function TokenomicsPage() {
 
   return (
     <main className="min-h-screen bg-background">
+      <Navbar />
+
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
@@ -617,6 +621,8 @@ export default function TokenomicsPage() {
           </motion.div>
         </div>
       </section>
+
+      <Footer />
     </main>
   )
 }

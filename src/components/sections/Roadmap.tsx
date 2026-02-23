@@ -10,8 +10,10 @@ const roadmapItems = [
     title: 'Foundation',
     status: 'completed',
     items: [
-      { label: 'Core AI engine development', done: true },
-      { label: 'ZK circuit design', done: true },
+      { label: 'Core AI engine (35+ threat types)', done: true },
+      { label: 'ZK circuit design & prover', done: true },
+      { label: 'Smart contracts deployed (Sepolia)', done: true },
+      { label: 'Enterprise dashboard & landing site', done: true },
       { label: 'Technical whitepaper', done: true },
     ],
   },
@@ -20,8 +22,8 @@ const roadmapItems = [
     title: 'Presale Launch',
     status: 'active',
     items: [
-      { label: 'PinkSale presale launch', done: false },
-      { label: 'Security audits', done: false },
+      { label: 'Token presale (3 rounds)', done: false },
+      { label: 'Security audits (Aikido)', done: false },
       { label: 'Enterprise pilot program', done: false },
     ],
   },
@@ -41,7 +43,7 @@ const roadmapItems = [
     status: 'upcoming',
     items: [
       { label: 'Multi-chain support', done: false },
-      { label: 'Enterprise dashboard', done: false },
+      { label: 'Validator staking live', done: false },
       { label: 'Partner integrations', done: false },
     ],
   },

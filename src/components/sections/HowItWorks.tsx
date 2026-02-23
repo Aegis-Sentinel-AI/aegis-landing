@@ -50,7 +50,7 @@ export default function HowItWorks() {
     <section id="how-it-works" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          label="Architecture"
+          label="Pipeline"
           title="How It Works"
           subtitle="From scan to on-chain verification in under 5 seconds"
         />

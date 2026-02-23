@@ -32,7 +32,7 @@ const features = [
     title: 'L2 Blockchain Settlement',
     description: 'Security proofs are verified and recorded on Ethereum L2. Immutable audit trails that regulators, insurers, and stakeholders can trust.',
     benefits: [
-      'Deployed on Sepolia testnet',
+      'Live on Ethereum L2',
       'Low gas costs (~$0.01 per verification)',
       'Tamper-proof audit logs',
       'Insurance integration ready',

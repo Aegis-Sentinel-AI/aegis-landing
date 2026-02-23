@@ -204,7 +204,7 @@ function PresaleNotifyForm() {
     setLoading(true)
 
     try {
-      const res = await fetch('/api/dashboard', {
+      const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, source: 'presale' }),

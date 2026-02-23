@@ -67,8 +67,8 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lime/5 via-transparent to-primary/5 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-lime/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
 
       {/* Login Card */}
@@ -76,8 +76,8 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="w-12 h-12 bg-lime/10 border border-lime/30 rounded-xl flex items-center justify-center">
-              <Shield className="w-7 h-7 text-lime" />
+            <div className="w-12 h-12 bg-primary/10 border border-primary/30 rounded-xl flex items-center justify-center">
+              <Shield className="w-7 h-7 text-primary" />
             </div>
           </Link>
           <h1 className="text-2xl font-bold text-white">Welcome back</h1>

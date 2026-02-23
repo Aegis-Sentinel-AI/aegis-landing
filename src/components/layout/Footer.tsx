@@ -15,14 +15,13 @@ const footerLinks = {
     { label: 'Contributing', href: 'https://github.com/Aegis-Sentinel-AI/aegis-docs/blob/main/CONTRIBUTING.md', external: true },
   ],
   company: [
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Careers', href: '/careers' },
+    { label: 'About', href: 'https://docs.aegissentinel.online/about', external: true },
+    { label: 'Blog', href: 'https://x.com/AegisSentinelAi', external: true },
     { label: 'Contact', href: 'mailto:contact@aegissentinel.online' },
   ],
   legal: [
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
+    { label: 'Privacy Policy', href: 'https://docs.aegissentinel.online/legal/privacy', external: true },
+    { label: 'Terms of Service', href: 'https://docs.aegissentinel.online/legal/terms', external: true },
     { label: 'Compliance', href: 'https://docs.aegissentinel.online/compliance', external: true },
     { label: 'Security', href: 'https://github.com/Aegis-Sentinel-AI/aegis-docs/security/policy', external: true },
   ],
@@ -105,6 +104,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    target={link.external ? '_blank' : undefined}
                     className="text-sm text-zinc-400 hover:text-white transition-colors"
                   >
                     {link.label}
