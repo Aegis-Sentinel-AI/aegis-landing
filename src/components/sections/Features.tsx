@@ -8,11 +8,12 @@ const features = [
   {
     icon: Brain,
     title: 'AI Threat Detection',
-    description: 'Specialized security LLMs trained on 50M+ threat patterns analyze your network in real-time. Detects zero-days, APTs, and anomalies that rule-based systems miss.',
+    description: 'Specialized security LLMs trained on MITRE ATT&CK framework. Detects 35+ threat types including DDoS, lateral movement, DNS tunneling, and credential stuffing with 97%+ confidence.',
     benefits: [
-      'Fine-tuned SecBERT & CodeLlama models',
-      'Behavioral anomaly detection',
-      'Natural language threat reports',
+      '35+ threat types across 8 categories',
+      '97%+ AI confidence scoring',
+      'MITRE ATT&CK integration',
+      'Real-time enterprise dashboard',
     ],
   },
   {
@@ -23,16 +24,18 @@ const features = [
       'Groth16 proofs (~50k constraints)',
       'GDPR-compliant by design',
       'Proof generation in <2 seconds',
+      'No PII ever on-chain',
     ],
   },
   {
     icon: Boxes,
     title: 'L2 Blockchain Settlement',
-    description: 'Security proofs are verified and recorded on Ethereum L2 (Arbitrum/Base). Immutable audit trails that regulators and stakeholders can trust.',
+    description: 'Security proofs are verified and recorded on Ethereum L2. Immutable audit trails that regulators, insurers, and stakeholders can trust.',
     benefits: [
+      'Deployed on Sepolia testnet',
       'Low gas costs (~$0.01 per verification)',
       'Tamper-proof audit logs',
-      'Cross-chain verification support',
+      'Insurance integration ready',
     ],
   },
 ]

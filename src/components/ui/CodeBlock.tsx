@@ -1,7 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Check, Copy } from 'lucide-react'
+
+// DOMPurify only works in browser - use dynamic import
+const sanitizeHtml = (html: string | null | undefined): string => {
+  if (!html) return '';
+  // During SSR, return escaped content as-is (already escaped in highlightCode)
+  if (typeof window === 'undefined') return html;
+  // Client-side: use DOMPurify for extra safety
+  try {
+    const DOMPurify = require('dompurify');
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['span', 'p'],
+      ALLOWED_ATTR: ['class'],
+    });
+  } catch {
+    return html;
+  }
+}
 
 interface CodeBlockProps {
   code: string
@@ -20,9 +37,17 @@ export default function CodeBlock({ code, language = 'python', title }: CodeBloc
 
   // Simple syntax highlighting
   const highlightCode = (code: string) => {
-    return code
+    // Escape HTML first to prevent XSS
+    const escaped = code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;')
+    
+    return escaped
       .replace(/(from|import|def|class|return|if|else|elif|for|while|try|except|with|as|async|await|True|False|None)/g, '<span class="text-purple-400">$1</span>')
-      .replace(/(".*?"|'.*?')/g, '<span class="text-green-400">$1</span>')
+      .replace(/(&quot;.*?&quot;|&#039;.*?&#039;)/g, '<span class="text-green-400">$1</span>')
       .replace(/(#.*$)/gm, '<span class="text-zinc-500">$1</span>')
       .replace(/(\d+)/g, '<span class="text-orange-400">$1</span>')
   }
@@ -54,7 +79,7 @@ export default function CodeBlock({ code, language = 'python', title }: CodeBloc
       <pre className="p-5 overflow-x-auto">
         <code
           className="text-sm font-mono leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: highlightCode(code) }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(highlightCode(code)) }}
         />
       </pre>
     </div>

@@ -241,21 +241,21 @@ export default function Architecture() {
               >
                 {/* Connector */}
                 {index < architectureSteps.length - 1 && (
-                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 to-lime/50" />
+                  <div className="absolute left-[1.625rem] sm:left-8 top-16 sm:top-20 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 to-lime/50" />
                 )}
                 
                 <div 
                   className="card cursor-pointer"
                   onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-start gap-3">
                     <div 
-                      className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
+                      className="w-11 h-11 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: `${step.color}20`, borderColor: `${step.color}40` }}
                     >
-                      <step.icon className="w-8 h-8" style={{ color: step.color }} />
+                      <step.icon className="w-5 h-5 sm:w-8 sm:h-8" style={{ color: step.color }} />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <h3 className="font-semibold text-lg">{step.label}</h3>
                       <p className="text-sm text-zinc-400">{step.description}</p>
                     </div>

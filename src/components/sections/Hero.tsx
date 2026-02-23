@@ -2,12 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Zap, Shield } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Zap, Shield, LayoutDashboard } from 'lucide-react'
 import AnimatedShield from '@/components/ui/AnimatedShield'
 
 const stats = [
   { value: '<100ms', label: 'Detection Latency' },
-  { value: '99.7%', label: 'Threat Accuracy' },
+  { value: '35+', label: 'Threat Types' },
+  { value: '97%+', label: 'AI Confidence' },
   { value: 'Zero', label: 'Data Exposure' },
 ]
 
@@ -82,14 +83,21 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
+              className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12"
             >
               <Link href="#waitlist" className="btn-primary text-base px-8 py-4">
                 Get Early Access
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
-                href="https://aegis-docs-site-two.vercel.app/whitepaper"
+                href="/login"
+                className="btn-secondary text-base px-8 py-4"
+              >
+                <LayoutDashboard className="w-5 h-5" />
+                View Dashboard
+              </Link>
+              <Link
+                href="https://docs.aegissentinel.online/whitepaper"
                 target="_blank"
                 className="btn-secondary text-base px-8 py-4"
               >
@@ -102,7 +110,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-8 lg:gap-12"
+              className="flex flex-wrap gap-4 sm:gap-8 lg:gap-12"
             >
               {stats.map((stat, index) => (
                 <div key={index}>

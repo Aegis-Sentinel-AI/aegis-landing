@@ -12,19 +12,19 @@ const tokenUtilities = [
     percentage: '2%',
     description: 'Every verification burns 2% of fees — creating perpetual deflationary pressure.',
     stats: [
-      { label: 'Burned YTD', value: '12.4M' },
       { label: 'Burn Rate', value: '2%/tx' },
+      { label: 'Mechanism', value: 'Auto' },
     ],
   },
   {
     icon: Gem,
     title: 'Stake',
     color: '#0066FF',
-    percentage: '8.2%',
+    percentage: '8-12%',
     description: 'Stake $SENTINEL to earn yield from protocol fees and secure the network.',
     stats: [
-      { label: 'APY', value: '8.2%' },
-      { label: 'Total Staked', value: '340M' },
+      { label: 'Target APY', value: '8-12%' },
+      { label: 'Launch', value: 'Q2 2026' },
     ],
   },
   {
@@ -34,16 +34,16 @@ const tokenUtilities = [
     percentage: '1 Token',
     description: 'Shape the protocol\'s future. Vote on upgrades, fee structures, and grants.',
     stats: [
-      { label: 'Active Proposals', value: '7' },
       { label: 'Voter Power', value: '1:1' },
+      { label: 'Model', value: 'On-chain' },
     ],
   },
 ]
 
 const tokenMetrics = [
   { label: 'Total Supply', value: '1,000,000,000', suffix: '$SENTINEL' },
-  { label: 'Circulating', value: '420,000,000', suffix: '42%' },
-  { label: 'Fully Diluted MC', value: '$84M', suffix: 'est.' },
+  { label: 'Presale Price', value: '$0.025', suffix: 'Q2 2026' },
+  { label: 'Public Price', value: '$0.05', suffix: 'Q3 2026' },
 ]
 
 export default function Tokenomics() {
@@ -95,15 +95,15 @@ export default function Tokenomics() {
               />
               
               {/* Icon & Title */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between gap-3 mb-6">
                 <div 
-                  className="w-14 h-14 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                  className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110"
                   style={{ backgroundColor: `${utility.color}20` }}
                 >
-                  <utility.icon className="w-7 h-7" style={{ color: utility.color }} />
+                  <utility.icon className="w-5 h-5 sm:w-7 sm:h-7" style={{ color: utility.color }} />
                 </div>
                 <div 
-                  className="text-3xl font-mono font-bold tabular-nums"
+                  className="text-2xl sm:text-3xl font-mono font-bold tabular-nums whitespace-nowrap"
                   style={{ color: utility.color }}
                 >
                   {utility.percentage}
@@ -134,7 +134,7 @@ export default function Tokenomics() {
           className="text-center"
         >
           <a
-            href="https://aegis-docs-site-two.vercel.app/tokenomics"
+            href="https://docs.aegissentinel.online/tokenomics"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex"

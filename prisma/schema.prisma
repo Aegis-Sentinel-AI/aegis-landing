@@ -1,0 +1,196 @@
+// AegisSentinel Database Schema
+// PostgreSQL via Prisma ORM
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ── Users & Auth ─────────────────────────────────────
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String?
+  passwordHash  String?
+  role          String   @default("viewer") // admin, analyst, viewer
+  avatar        String?
+  provider      String   @default("email") // email, google, github
+  providerId    String?
+  lastLogin     DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  sessions      Session[]
+  scans         Scan[]
+  auditLogs     AuditLog[]
+
+  @@index([email])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([userId])
+}
+
+// ── Threats ──────────────────────────────────────────
+
+model Threat {
+  id          String   @id @default(cuid())
+  type        String   // SQL Injection, Brute Force, etc.
+  severity    String   // critical, high, medium, low
+  source      String   // IP address
+  status      String   @default("investigating") // blocked, investigating, active
+  confidence  Int      // 0-100
+  aiInsight   String?  @db.Text
+  mitre       String?  // MITRE ATT&CK ID
+  category    String?  // Network, Application, Identity, Data, Infrastructure
+  countryCode String?  // ISO 2-letter country code
+  raw         Json?    // Raw event payload
+  resolvedAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([severity])
+  @@index([status])
+  @@index([createdAt])
+  @@index([countryCode])
+}
+
+// ── Scans ────────────────────────────────────────────
+
+model Scan {
+  id          String   @id @default(cuid())
+  userId      String
+  target      String   // URL, IP, domain, contract address
+  scanType    String   // network, application, smart-contract, full
+  status      String   @default("queued") // queued, running, completed, failed
+  findings    Int      @default(0)
+  riskScore   Int?     // 0-100
+  report      Json?    // Full scan results
+  duration    Int?     // milliseconds
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ── Geographical Attack Data ─────────────────────────
+
+model GeoAttack {
+  id          String   @id @default(cuid())
+  country     String
+  code        String   // ISO 2-letter
+  attacks     Int      @default(0)
+  lat         Float
+  lng         Float
+  intensity   String   // critical, high, medium, low
+  period      String   @default("24h") // 1h, 24h, 7d, 30d
+  updatedAt   DateTime @updatedAt
+
+  @@unique([code, period])
+  @@index([intensity])
+}
+
+// ── Enterprise Detectors ─────────────────────────────
+
+model Detector {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  status      String   @default("active") // active, scanning, disabled
+  detected    Int      @default(0)
+  category    String   // Identity, Data, Infrastructure, Application
+  lastRun     DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ── Metrics Snapshots ────────────────────────────────
+
+model MetricSnapshot {
+  id                   String   @id @default(cuid())
+  trustScore           Int
+  threatsBlocked       Int
+  scansCompleted       Int
+  activeAlerts         Int
+  zkProofsGenerated    Int
+  onChainVerifications Int
+  timestamp            DateTime @default(now())
+
+  @@index([timestamp])
+}
+
+// ── Activity Data (hourly aggregates) ────────────────
+
+model ActivityHour {
+  id       String   @id @default(cuid())
+  hour     String   // "00:00", "04:00", etc.
+  threats  Int      @default(0)
+  scans    Int      @default(0)
+  date     DateTime @default(now()) @db.Date
+
+  @@unique([hour, date])
+  @@index([date])
+}
+
+// ── Network Threat Insights (AI-generated) ───────────
+
+model NetworkInsight {
+  id              String   @id @default(cuid())
+  title           String
+  severity        String
+  confidence      Int
+  summary         String   @db.Text
+  recommendation  String   @db.Text
+  affectedSystems String[] // PostgreSQL array
+  mitre           String?
+  resolved        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+
+  @@index([severity])
+  @@index([resolved])
+}
+
+// ── Audit Log ────────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String   // login, scan_started, threat_resolved, settings_changed
+  detail    String?  @db.Text
+  ip        String?
+  createdAt DateTime @default(now())
+
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+}
+
+// ── Waitlist ─────────────────────────────────────────
+
+model WaitlistEntry {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String?  // landing, docs, referral
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

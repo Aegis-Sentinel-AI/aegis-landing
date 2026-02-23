@@ -126,7 +126,7 @@ export default function TokenomicsPage() {
               <span className="text-sm font-mono text-lime">$SENTINEL Token</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               Tokenomics
               <span className="block gradient-text">Deep Dive</span>
             </h1>
@@ -605,7 +605,7 @@ export default function TokenomicsPage() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a 
-                href="https://aegis-docs-site-two.vercel.app/whitepaper" 
+                href="https://docs.aegissentinel.online/whitepaper" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"

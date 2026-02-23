@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Shield, Twitter, Github, MessageCircle } from 'lucide-react'
+import { Shield, Twitter, Github, MessageCircle, Send } from 'lucide-react'
 
 const footerLinks = {
   protocol: [
@@ -9,8 +9,8 @@ const footerLinks = {
     { label: 'Roadmap', href: '#roadmap' },
   ],
   developers: [
-    { label: 'Documentation', href: 'https://aegis-docs-site-two.vercel.app', external: true },
-    { label: 'API Reference', href: 'https://aegis-docs-site-two.vercel.app/api-reference', external: true },
+    { label: 'Documentation', href: 'https://docs.aegissentinel.online', external: true },
+    { label: 'API Reference', href: 'https://docs.aegissentinel.online/api-reference', external: true },
     { label: 'GitHub', href: 'https://github.com/Aegis-Sentinel-AI', external: true },
     { label: 'Contributing', href: 'https://github.com/Aegis-Sentinel-AI/aegis-docs/blob/main/CONTRIBUTING.md', external: true },
   ],
@@ -23,14 +23,15 @@ const footerLinks = {
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
-    { label: 'Compliance', href: 'https://aegis-docs-site-two.vercel.app/compliance', external: true },
+    { label: 'Compliance', href: 'https://docs.aegissentinel.online/compliance', external: true },
     { label: 'Security', href: 'https://github.com/Aegis-Sentinel-AI/aegis-docs/security/policy', external: true },
   ],
 }
 
 const socialLinks = [
   { icon: Twitter, href: 'https://x.com/AegisSentinelAi', label: 'X' },
-  { icon: MessageCircle, href: 'https://discord.gg/aegissentinel', label: 'Discord' },
+  { icon: MessageCircle, href: 'https://discord.gg/aG5XwyV7sV', label: 'Discord' },
+  { icon: Send, href: 'https://t.me/AegisSentinelAi', label: 'Telegram' },
   { icon: Github, href: 'https://github.com/Aegis-Sentinel-AI', label: 'GitHub' },
 ]
 

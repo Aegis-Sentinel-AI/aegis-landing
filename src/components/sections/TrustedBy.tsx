@@ -36,7 +36,7 @@ const complianceBadges = [
 
 export default function TrustedBy() {
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section id="compliance" className="py-16 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-lime/5 pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -70,20 +70,20 @@ export default function TrustedBy() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass rounded-xl p-6 text-center hover:bg-white/10 transition-all group cursor-default"
+              className="glass rounded-xl p-4 sm:p-6 text-center hover:bg-white/10 transition-all group cursor-default"
             >
               {/* Icon */}
               <div 
-                className="w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform group-hover:scale-110"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl mx-auto mb-3 sm:mb-4 flex items-center justify-center transition-transform group-hover:scale-110"
                 style={{ backgroundColor: `${badge.color}20` }}
               >
-                <badge.icon className="w-7 h-7" style={{ color: badge.color }} />
+                <badge.icon className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: badge.color }} />
               </div>
               
               {/* Label */}
-              <div className="text-xl font-mono font-bold mb-0.5">{badge.label}</div>
+              <div className="text-lg sm:text-xl font-mono font-bold mb-0.5 whitespace-nowrap">{badge.label}</div>
               <div 
-                className="text-sm font-mono font-medium uppercase tracking-wide mb-2"
+                className="text-xs sm:text-sm font-mono font-medium uppercase tracking-wide mb-2 whitespace-nowrap"
                 style={{ color: badge.color }}
               >
                 {badge.sublabel}
