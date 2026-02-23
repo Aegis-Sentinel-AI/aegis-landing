@@ -23,7 +23,7 @@ const roadmapItems = [
     status: 'active',
     items: [
       { label: 'Token presale (3 rounds)', done: false },
-      { label: 'Security audits (Aikido)', done: false },
+      { label: 'Internal security audit', done: true },
       { label: 'Enterprise pilot program', done: false },
     ],
   },

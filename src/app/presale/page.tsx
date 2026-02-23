@@ -98,10 +98,10 @@ const vestingSchedule = [
 ]
 
 const securityFeatures = [
-  { text: 'KYC/AML verified via Synaps', icon: ShieldCheck },
-  { text: 'Smart contract audited by Aikido', icon: Shield },
+  { text: 'Smart contract internally audited', icon: Shield },
   { text: 'Funds held in multi-sig treasury', icon: Lock },
   { text: 'Vesting enforced on-chain', icon: Timer },
+  { text: '120+ automated tests passing', icon: ShieldCheck },
 ]
 
 const faqs = [
@@ -127,7 +127,7 @@ const faqs = [
   },
   {
     q: 'Is the presale KYC required?',
-    a: 'Yes, participants must complete KYC/AML verification through our partner Synaps before purchasing. This ensures regulatory compliance across jurisdictions.',
+    a: 'KYC is handled by PinkSale during the presale process. This ensures regulatory compliance across jurisdictions.',
   },
   {
     q: 'What happens if a round sells out early?',
