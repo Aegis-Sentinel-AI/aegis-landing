@@ -78,7 +78,7 @@ const howToParticipate = [
   {
     step: 3,
     title: 'Connect & Buy',
-    description: 'Connect your wallet on the presale portal and purchase $SENTINEL tokens.',
+    description: 'Connect your wallet on the presale portal and purchase $AEGIS tokens.',
     icon: Rocket,
     color: '#8B5CF6',
   },
@@ -110,8 +110,8 @@ const faqs = [
     a: 'The Early Bird round is scheduled for Q2 2026. Exact date and time will be announced to waitlist members 48 hours before launch.',
   },
   {
-    q: 'What blockchain is $SENTINEL on?',
-    a: '$SENTINEL is deployed on Arbitrum (Ethereum L2). You\'ll need ETH on Arbitrum to participate in the presale.',
+    q: 'What blockchain is $AEGIS on?',
+    a: '$AEGIS is deployed on Arbitrum (Ethereum L2). You\'ll need ETH on Arbitrum to participate in the presale.',
   },
   {
     q: 'Is there a minimum or maximum buy?',
@@ -123,7 +123,7 @@ const faqs = [
   },
   {
     q: 'Will there be a public sale?',
-    a: 'Yes \u2014 after the presale rounds, $SENTINEL will launch publicly on Uniswap (Arbitrum) at $0.04 per token. The presale offers significant discounts over the listing price.',
+    a: 'Yes \u2014 after the presale rounds, $AEGIS will launch publicly on Uniswap (Arbitrum) at $0.04 per token. The presale offers significant discounts over the listing price.',
   },
   {
     q: 'Is the presale KYC required?',
@@ -341,7 +341,7 @@ export default function PresalePage() {
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               Secure Your
-              <span className="block gradient-text">$SENTINEL Tokens</span>
+              <span className="block gradient-text">$AEGIS Tokens</span>
             </h1>
 
             <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12">
@@ -400,7 +400,7 @@ export default function PresalePage() {
               {[
                 { label: 'Starting Price', value: '$0.015', sub: 'Early Bird' },
                 { label: 'Listing Price', value: '$0.040', sub: 'Uniswap launch' },
-                { label: 'Total Allocation', value: '150M', sub: '$SENTINEL' },
+                { label: 'Total Allocation', value: '150M', sub: '$AEGIS' },
                 { label: 'Target Raise', value: `$${(totalRaise / 1_000_000).toFixed(1)}M`, sub: 'Hard cap' },
               ].map((stat, i) => (
                 <div key={i} className="glass rounded-xl p-4 border border-white/10">
@@ -576,7 +576,7 @@ export default function PresalePage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">How to Participate</h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">
-              Four simple steps to secure your $SENTINEL tokens at the best price
+              Four simple steps to secure your $AEGIS tokens at the best price
             </p>
           </motion.div>
 
@@ -889,7 +889,7 @@ export default function PresalePage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-zinc-400">
-              Everything you need to know about the $SENTINEL presale
+              Everything you need to know about the $AEGIS presale
             </p>
           </motion.div>
 

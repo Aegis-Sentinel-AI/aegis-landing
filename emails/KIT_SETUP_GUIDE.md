@@ -42,9 +42,9 @@ This guide explains how to set up the automated welcome email for presale waitli
 When editing the email in the automation:
 
 ### Subject Line Options:
-- `You're on the $SENTINEL Presale Waitlist 🎉`
+- `You're on the $AEGIS Presale Waitlist 🎉`
 - `Welcome! Your PinkSale Presale Access is Confirmed`
-- `🚀 You're In! $SENTINEL Presale Waitlist Confirmed`
+- `🚀 You're In! $AEGIS Presale Waitlist Confirmed`
 
 ### Preview Text:
 `Early Bird at $0.015 — Listing price will be $0.04`
@@ -88,7 +88,7 @@ Kit.com uses Liquid templating. Available variables:
 Consider adding follow-up emails:
 
 ### Email 2 (Day 3): Tokenomics Deep Dive
-- Subject: `How $SENTINEL's 5-Layer Burn Mechanism Works`
+- Subject: `How $AEGIS's 5-Layer Burn Mechanism Works`
 - Content: Explain burn mechanics, show deflationary projections
 
 ### Email 3 (Day 7): Presale Countdown
@@ -96,7 +96,7 @@ Consider adding follow-up emails:
 - Content: Specific date, whitelist instructions, countdown
 
 ### Email 4 (Launch Day): GO LIVE!
-- Subject: `🚨 LIVE NOW: $SENTINEL Presale on PinkSale`
+- Subject: `🚨 LIVE NOW: $AEGIS Presale on PinkSale`
 - Content: Direct link, how to participate, deadline
 
 ---

@@ -128,7 +128,7 @@ export default function TokenomicsPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full border border-lime/20 mb-6">
               <Coins className="w-4 h-4 text-lime" />
-              <span className="text-sm font-mono text-lime">$SENTINEL Token</span>
+              <span className="text-sm font-mono text-lime">$AEGIS Token</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
@@ -498,7 +498,7 @@ export default function TokenomicsPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Enterprise Pricing</h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">
-              Subscriptions paid in $SENTINEL tokens — creating continuous demand
+              Subscriptions paid in $AEGIS tokens — creating continuous demand
             </p>
           </motion.div>
 
@@ -523,7 +523,7 @@ export default function TokenomicsPage() {
                   <div className="text-4xl font-mono font-bold gradient-text">{tier.price}</div>
                   <div className="text-sm text-zinc-400">/month</div>
                   <div className="mt-2 text-xs font-mono text-zinc-500">
-                    {tier.tokens} $SENTINEL
+                    {tier.tokens} $AEGIS
                   </div>
                 </div>
                 
@@ -561,13 +561,13 @@ export default function TokenomicsPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Validator Staking</h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">
-              Stake $SENTINEL to secure the network and earn protocol revenue
+              Stake $AEGIS to secure the network and earn protocol revenue
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: 'Minimum Stake', value: '10,000', sublabel: '$SENTINEL', icon: Lock },
+              { label: 'Minimum Stake', value: '10,000', sublabel: '$AEGIS', icon: Lock },
               { label: 'Target APY', value: '8-12%', sublabel: 'Variable', icon: TrendingUp },
               { label: 'Unstake Period', value: '7 days', sublabel: 'Lock period', icon: Clock },
               { label: 'Slash Penalty', value: '10%', sublabel: 'For malicious acts', icon: Shield },

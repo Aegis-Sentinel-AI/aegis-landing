@@ -2,7 +2,7 @@ Welcome to the AegisSentinel Presale Waitlist! 🎉
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Thank you for joining! You're now among the first to receive exclusive access to our upcoming $SENTINEL token presale on PinkSale.
+Thank you for joining! You're now among the first to receive exclusive access to our upcoming $AEGIS token presale on PinkSale.
 
 🚀 PRESALE TOKEN PRICING
 ━━━━━━━━━━━━━━━━━━━━━━━━
@@ -20,7 +20,7 @@ WHAT IS AEGISENTINEL?
 
 AegisSentinel is building the future of enterprise cybersecurity — AI-powered threat detection with Zero-Knowledge proofs anchored on Arbitrum L2. 
 
-The $SENTINEL token powers:
+The $AEGIS token powers:
 • Validator staking (earn 8-12% APY)
 • Enterprise security subscriptions
 • Governance voting

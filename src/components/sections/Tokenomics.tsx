@@ -21,7 +21,7 @@ const tokenUtilities = [
     title: 'Stake',
     color: '#0066FF',
     percentage: '8-12%',
-    description: 'Stake $SENTINEL to earn yield from protocol fees and secure the network.',
+    description: 'Stake $AEGIS to earn yield from protocol fees and secure the network.',
     stats: [
       { label: 'Target APY', value: '8-12%' },
       { label: 'Launch', value: 'Q2 2026' },
@@ -41,7 +41,7 @@ const tokenUtilities = [
 ]
 
 const tokenMetrics = [
-  { label: 'Total Supply', value: '1,000,000,000', suffix: '$SENTINEL' },
+  { label: 'Total Supply', value: '1,000,000,000', suffix: '$AEGIS' },
   { label: 'Early Bird Price', value: '$0.015', suffix: 'Q2 2026' },
   { label: 'Listing Price', value: '$0.04', suffix: 'Uniswap (Arbitrum)' },
 ]
@@ -54,7 +54,7 @@ export default function Tokenomics() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          label="$SENTINEL Token"
+          label="$AEGIS Token"
           title="Tokenomics Dashboard"
           subtitle="Utility-first design powering the security economy"
         />
