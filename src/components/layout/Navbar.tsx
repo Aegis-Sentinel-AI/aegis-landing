@@ -11,7 +11,7 @@ const navLinks = [
   { href: '#features', label: 'Features' },
   { href: '#tokenomics', label: 'Tokenomics' },
   { href: '/presale', label: 'Presale', highlight: true },
-  { href: 'https://portal.aegissentinel.online', label: 'Portal', external: true },
+  { href: '/login', label: 'Portal' },
   { href: 'https://docs.aegissentinel.online', label: 'Docs', external: true },
 ]
 
