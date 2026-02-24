@@ -47,7 +47,7 @@ When editing the email in the automation:
 - `🚀 You're In! $SENTINEL Presale Waitlist Confirmed`
 
 ### Preview Text:
-`Get 50% off at $0.025 — Public price will be $0.05`
+`Early Bird at $0.015 — Listing price will be $0.04`
 
 ### Sender Details:
 - **From Name:** AegisSentinel

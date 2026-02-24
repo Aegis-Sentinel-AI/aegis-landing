@@ -18,12 +18,12 @@ const PRESALE_DATE = new Date('2026-06-01T12:00:00Z')
 const presalePhases = [
   {
     name: 'Early Bird',
-    price: '$0.020',
-    priceNum: 0.02,
-    discount: '60%',
-    allocation: '30M',
-    allocationNum: 30_000_000,
-    cap: '$600K',
+    price: '$0.015',
+    priceNum: 0.015,
+    discount: '62.5%',
+    allocation: '50M',
+    allocationNum: 50_000_000,
+    cap: '$750K',
     status: 'upcoming' as const,
     bonus: '+20% bonus tokens',
     minBuy: '$100',
@@ -32,12 +32,12 @@ const presalePhases = [
   },
   {
     name: 'Presale',
-    price: '$0.025',
-    priceNum: 0.025,
-    discount: '50%',
-    allocation: '50M',
-    allocationNum: 50_000_000,
-    cap: '$1.25M',
+    price: '$0.022',
+    priceNum: 0.022,
+    discount: '45%',
+    allocation: '60M',
+    allocationNum: 60_000_000,
+    cap: '$1.32M',
     status: 'upcoming' as const,
     bonus: '+10% bonus tokens',
     minBuy: '$100',
@@ -46,12 +46,12 @@ const presalePhases = [
   },
   {
     name: 'Final Round',
-    price: '$0.035',
-    priceNum: 0.035,
-    discount: '30%',
-    allocation: '20M',
-    allocationNum: 20_000_000,
-    cap: '$700K',
+    price: '$0.032',
+    priceNum: 0.032,
+    discount: '20%',
+    allocation: '40M',
+    allocationNum: 40_000_000,
+    cap: '$1.28M',
     status: 'upcoming' as const,
     bonus: 'No bonus',
     minBuy: '$250',
@@ -92,9 +92,9 @@ const howToParticipate = [
 ]
 
 const vestingSchedule = [
-  { phase: 'Early Bird', tge: '5%', cliff: '1 month', vesting: '12 months linear', color: '#ADFF2F' },
-  { phase: 'Presale', tge: '10%', cliff: 'None', vesting: '10 months linear', color: '#0066FF' },
-  { phase: 'Final Round', tge: '15%', cliff: 'None', vesting: '8 months linear', color: '#8B5CF6' },
+  { phase: 'Early Bird', tge: '10%', cliff: 'None', vesting: '9 months linear', color: '#ADFF2F' },
+  { phase: 'Presale', tge: '10%', cliff: 'None', vesting: '9 months linear', color: '#0066FF' },
+  { phase: 'Final Round', tge: '10%', cliff: 'None', vesting: '9 months linear', color: '#8B5CF6' },
 ]
 
 const securityFeatures = [
@@ -119,11 +119,11 @@ const faqs = [
   },
   {
     q: 'When do I receive my tokens?',
-    a: 'Tokens are distributed starting at TGE (Token Generation Event). A percentage unlocks immediately, with the rest vesting linearly over 8–12 months depending on your round.',
+    a: 'Tokens are distributed starting at TGE (Token Generation Event). 10% unlocks immediately, with the rest vesting linearly over 9 months.',
   },
   {
     q: 'Will there be a public sale?',
-    a: 'Yes — after the presale rounds, $SENTINEL will launch publicly on Uniswap (Arbitrum) at $0.05 per token. The presale offers significant discounts over the public price.',
+    a: 'Yes \u2014 after the presale rounds, $SENTINEL will launch publicly on Uniswap (Arbitrum) at $0.04 per token. The presale offers significant discounts over the listing price.',
   },
   {
     q: 'Is the presale KYC required?',
@@ -398,9 +398,9 @@ export default function PresalePage() {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-12"
             >
               {[
-                { label: 'Starting Price', value: '$0.020', sub: 'Early Bird' },
-                { label: 'Public Price', value: '$0.050', sub: 'Uniswap launch' },
-                { label: 'Total Allocation', value: '100M', sub: '$SENTINEL' },
+                { label: 'Starting Price', value: '$0.015', sub: 'Early Bird' },
+                { label: 'Listing Price', value: '$0.040', sub: 'Uniswap launch' },
+                { label: 'Total Allocation', value: '150M', sub: '$SENTINEL' },
                 { label: 'Target Raise', value: `$${(totalRaise / 1_000_000).toFixed(1)}M`, sub: 'Hard cap' },
               ].map((stat, i) => (
                 <div key={i} className="glass rounded-xl p-4 border border-white/10">
@@ -510,7 +510,7 @@ export default function PresalePage() {
                     </div>
                     <div className="text-sm text-zinc-500">
                       per token
-                      <span className="text-zinc-600 ml-2 line-through">$0.05</span>
+                      <span className="text-zinc-600 ml-2 line-through">$0.04</span>
                     </div>
                   </div>
 
@@ -837,10 +837,10 @@ export default function PresalePage() {
                 </thead>
                 <tbody>
                   {[
-                    { metric: 'Price', values: ['$0.020', '$0.025', '$0.035', '$0.050'] },
-                    { metric: 'Discount', values: ['60%', '50%', '30%', '0%'] },
-                    { metric: 'Tokens per $1,000', values: ['50,000', '40,000', '28,571', '20,000'] },
-                    { metric: 'Potential ROI at $0.50', values: ['25x', '20x', '14.3x', '10x'] },
+                    { metric: 'Price', values: ['$0.015', '$0.022', '$0.032', '$0.040'] },
+                    { metric: 'Discount', values: ['62.5%', '45%', '20%', '0%'] },
+                    { metric: 'Tokens per $1,000', values: ['66,667', '45,455', '31,250', '25,000'] },
+                    { metric: 'Potential ROI at $0.50', values: ['33x', '23x', '15.6x', '12.5x'] },
                     { metric: 'Bonus Tokens', values: ['+20%', '+10%', '—', '—'] },
                     { metric: 'Access', values: ['Waitlist', 'Waitlist', 'Open', 'Open'] },
                   ].map((row, i) => (
@@ -928,8 +928,8 @@ export default function PresalePage() {
             </h2>
 
             <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
-              The Early Bird round offers the best price at $0.020 per token — 
-              a 60% discount from the public launch price. Once it sells out, it&apos;s gone.
+              The Early Bird round offers the best price at $0.015 per token &mdash; 
+              a 62.5% discount from the listing price. Once it sells out, it&apos;s gone.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

@@ -42,8 +42,8 @@ const tokenUtilities = [
 
 const tokenMetrics = [
   { label: 'Total Supply', value: '1,000,000,000', suffix: '$SENTINEL' },
-  { label: 'Presale Price', value: '$0.025', suffix: 'Q2 2026' },
-  { label: 'Public Price', value: '$0.05', suffix: 'Q3 2026' },
+  { label: 'Early Bird Price', value: '$0.015', suffix: 'Q2 2026' },
+  { label: 'Listing Price', value: '$0.04', suffix: 'Uniswap (Arbitrum)' },
 ]
 
 export default function Tokenomics() {

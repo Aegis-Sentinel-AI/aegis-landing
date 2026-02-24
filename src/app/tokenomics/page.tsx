@@ -12,20 +12,21 @@ import Footer from '@/components/layout/Footer'
 
 // Token Sale Structure
 const tokenSale = {
-  seed: { price: 0.01, allocation: 5, raised: '500K', discount: '80%' },
-  presale: { price: 0.025, allocation: 10, raised: '2.5M', discount: '50%' },
-  public: { price: 0.05, allocation: 15, raised: '7.5M', discount: '0%' },
+  earlyBird: { price: 0.015, allocation: 15, raised: '750K', discount: '62.5%' },
+  presale: { price: 0.022, allocation: 15, raised: '1.32M', discount: '45%' },
+  finalRound: { price: 0.032, allocation: 15, raised: '1.28M', discount: '20%' },
 }
 
 // Token Distribution
 const distribution = [
-  { name: 'Public Sale', percentage: 15, color: '#BFFF00', tokens: '150M', vesting: '10% TGE, 12mo linear' },
-  { name: 'Ecosystem Rewards', percentage: 30, color: '#0066FF', tokens: '300M', vesting: '48mo linear' },
-  { name: 'Treasury/DAO', percentage: 20, color: '#8B5CF6', tokens: '200M', vesting: 'Governance controlled' },
-  { name: 'Team', percentage: 15, color: '#F59E0B', tokens: '150M', vesting: '12mo cliff, 36mo linear' },
-  { name: 'Validators', percentage: 10, color: '#10B981', tokens: '100M', vesting: '60mo rewards' },
-  { name: 'Liquidity', percentage: 5, color: '#EC4899', tokens: '50M', vesting: 'Unlocked for DEX' },
-  { name: 'Advisors', percentage: 5, color: '#6366F1', tokens: '50M', vesting: '6mo cliff, 24mo linear' },
+  { name: 'Ecosystem Rewards', percentage: 25, color: '#0066FF', tokens: '250M', vesting: '48mo emission' },
+  { name: 'Team', percentage: 15, color: '#F59E0B', tokens: '150M', vesting: '0mo cliff, 36mo linear' },
+  { name: 'Treasury', percentage: 15, color: '#8B5CF6', tokens: '150M', vesting: 'Multisig (3-of-5)' },
+  { name: 'Presale', percentage: 15, color: '#BFFF00', tokens: '150M', vesting: '10% TGE, 9mo linear' },
+  { name: 'Liquidity', percentage: 10, color: '#EC4899', tokens: '100M', vesting: 'Locked 12mo' },
+  { name: 'Community', percentage: 10, color: '#10B981', tokens: '100M', vesting: 'Airdrops, grants, bounties' },
+  { name: 'Validators', percentage: 7, color: '#6366F1', tokens: '70M', vesting: '60mo rewards' },
+  { name: 'Advisors', percentage: 3, color: '#EF4444', tokens: '30M', vesting: '6mo cliff, 24mo linear' },
 ]
 
 // Burn Mechanisms
@@ -144,9 +145,9 @@ export default function TokenomicsPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
                 { label: 'Total Supply', value: '1B', sublabel: 'Fixed cap' },
-                { label: 'Public Price', value: '$0.05', sublabel: 'TGE price' },
-                { label: 'Initial MC', value: '$50M', sublabel: 'At TGE' },
-                { label: 'Annual Burn', value: '~3%', sublabel: 'Projected' },
+                { label: 'Listing Price', value: '$0.04', sublabel: 'Uniswap (Arbitrum)' },
+                { label: 'Initial FDV', value: '$40M', sublabel: 'At TGE' },
+                { label: 'Annual Burn', value: '~2%', sublabel: 'Projected' },
               ].map((metric, i) => (
                 <motion.div
                   key={i}
