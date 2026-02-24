@@ -128,7 +128,7 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id
         token.name = user.name
         token.email = user.email
-        token.role = (user as Record<string, unknown>).role ?? 'viewer'
+        token.role = (user as unknown as Record<string, unknown>).role ?? 'viewer'
       }
       return token
     },

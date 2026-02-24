@@ -38,8 +38,8 @@
     "react-dom": "^18.2.0",
     "react-simple-maps": "^3.0.0",
     "tailwind-merge": "^2.2.1",
-    "viem": "^2.46.3",
-    "wagmi": "^3.5.0"
+    "viem": "^2.21.54",
+    "wagmi": "^2.19.5"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

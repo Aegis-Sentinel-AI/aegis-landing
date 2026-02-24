@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useAccount, useSignMessage, useConnect, useDisconnect } from 'wagmi'
@@ -21,6 +21,18 @@ import {
 type LoginTab = 'email' | 'wallet'
 
 export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center">
+        <div className="animate-pulse text-zinc-400">Loading...</div>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
+  )
+}
+
+function LoginContent() {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('redirect') || '/dashboard'
   const authError = searchParams.get('error')
