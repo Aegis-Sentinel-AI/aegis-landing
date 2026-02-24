@@ -1,67 +1,105 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { signIn } from 'next-auth/react'
+import { useAccount, useSignMessage, useConnect, useDisconnect } from 'wagmi'
 import Link from 'next/link'
-import { 
-  Shield, 
-  Mail, 
-  Lock, 
-  Eye, 
-  EyeOff, 
+import {
+  Shield,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
   ArrowRight,
-  Chrome,
-  Github,
+  Wallet,
+  User,
+  CheckCircle2,
+  AlertCircle,
 } from 'lucide-react'
 
-function setAuthCookie(data: Record<string, unknown>) {
-  document.cookie = `aegis_auth_token=${btoa(JSON.stringify(data))};path=/;max-age=${60 * 60 * 24 * 7};samesite=lax`
-}
+type LoginTab = 'email' | 'wallet'
 
 export default function LoginPage() {
-  const router = useRouter()
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get('redirect') || '/dashboard'
+  const authError = searchParams.get('error')
+
+  const [activeTab, setActiveTab] = useState<LoginTab>('email')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [error, setError] = useState(authError === 'CredentialsSignin' ? 'Invalid email or password' : '')
 
+  // Wallet connection
+  const { address, isConnected } = useAccount()
+  const { connectors, connect, isPending: isConnecting } = useConnect()
+  const { disconnect } = useDisconnect()
+  const { signMessageAsync } = useSignMessage()
+  const [isVerifying, setIsVerifying] = useState(false)
+  const [walletSuccess, setWalletSuccess] = useState(false)
+
+  // ── Email login handler ──
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!email || !password) {
+      setError('Please enter both email and password')
+      return
+    }
+
     setIsLoading(true)
     setError('')
 
-    // Simulate authentication delay
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    const result = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    })
 
-    // Demo credentials check (in production, this would be a real auth call)
-    const searchParams = new URLSearchParams(window.location.search)
-    const redirect = searchParams.get('redirect') || '/dashboard'
-
-    if (email === 'demo@aegissentinel.online' && password === 'demo123') {
-      const authData = { email, name: 'Demo User', role: 'admin', authenticated: true }
-      localStorage.setItem('aegis_auth', JSON.stringify(authData))
-      setAuthCookie(authData)
-      router.push(redirect)
-    } else if (email && password) {
-      const authData = { email, name: email.split('@')[0], role: 'viewer', authenticated: true }
-      localStorage.setItem('aegis_auth', JSON.stringify(authData))
-      setAuthCookie(authData)
-      router.push(redirect)
-    } else {
-      setError('Please enter both email and password')
+    if (result?.error) {
+      setError('Invalid email or password')
       setIsLoading(false)
+    } else {
+      window.location.href = callbackUrl
     }
   }
 
-  const handleSSOLogin = (provider: string) => {
-    // In production, this would redirect to OAuth flow
-    const searchParams = new URLSearchParams(window.location.search)
-    const redirect = searchParams.get('redirect') || '/dashboard'
-    const authData = { email: `sso-user@${provider}.com`, name: `${provider} User`, role: 'admin', authenticated: true }
-    localStorage.setItem('aegis_auth', JSON.stringify(authData))
-    setAuthCookie(authData)
-    router.push(redirect)
+  // ── Wallet login handler ──
+  const handleWalletLogin = async () => {
+    if (!address) return
+
+    setIsVerifying(true)
+    setError('')
+
+    try {
+      const message = `Sign this message to authenticate with Aegis Sentinel.\n\nWallet: ${address}\nTimestamp: ${Date.now()}`
+      const signature = await signMessageAsync({ message })
+
+      const result = await signIn('wallet', {
+        address,
+        signature,
+        message,
+        redirect: false,
+      })
+
+      if (result?.error) {
+        setError('Wallet authentication failed. Please try again.')
+      } else {
+        setWalletSuccess(true)
+        setTimeout(() => {
+          window.location.href = callbackUrl
+        }, 1000)
+      }
+    } catch (err: any) {
+      if (err.message?.includes('User rejected')) {
+        setError('Signature request was rejected')
+      } else {
+        setError('Failed to verify wallet. Please try again.')
+      }
+    } finally {
+      setIsVerifying(false)
+    }
   }
 
   return (
@@ -88,40 +126,97 @@ export default function LoginPage() {
         <div className="bg-zinc-900/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
           {/* Error Message */}
           {error && (
-            <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+            <div className="mb-6 flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+              <AlertCircle className="w-4 h-4 flex-shrink-0" />
               {error}
             </div>
           )}
 
-          {/* SSO Buttons */}
-          <div className="space-y-3 mb-6">
+          {/* Login Type Tabs */}
+          <div className="flex rounded-lg bg-zinc-800/50 p-1 mb-6">
             <button
-              onClick={() => handleSSOLogin('google')}
-              className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 border border-white/10 rounded-lg text-white transition-colors"
+              onClick={() => { setActiveTab('email'); setError('') }}
+              className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2.5 text-sm font-medium transition-all ${
+                activeTab === 'email'
+                  ? 'bg-zinc-700 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
             >
-              <Chrome className="w-5 h-5" />
-              <span>Continue with Google</span>
+              <User className="h-4 w-4" />
+              Email Login
             </button>
             <button
-              onClick={() => handleSSOLogin('github')}
-              className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 border border-white/10 rounded-lg text-white transition-colors"
+              onClick={() => { setActiveTab('wallet'); setError('') }}
+              className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2.5 text-sm font-medium transition-all ${
+                activeTab === 'wallet'
+                  ? 'bg-zinc-700 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
             >
-              <Github className="w-5 h-5" />
-              <span>Continue with GitHub</span>
+              <Wallet className="h-4 w-4" />
+              Wallet Login
             </button>
           </div>
 
-          {/* Divider */}
-          <div className="relative mb-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-white/10" />
+          {/* ── Wallet Login ── */}
+          {activeTab === 'wallet' && (
+            <div className="space-y-4">
+              {walletSuccess ? (
+                <div className="flex flex-col items-center gap-3 py-8">
+                  <CheckCircle2 className="w-12 h-12 text-lime" />
+                  <p className="text-white font-medium">Wallet verified!</p>
+                  <p className="text-zinc-400 text-sm">Redirecting to dashboard...</p>
+                </div>
+              ) : !isConnected ? (
+                <div className="space-y-3">
+                  <p className="text-zinc-400 text-sm text-center mb-4">Connect your wallet to sign in</p>
+                  {connectors.map((connector) => (
+                    <button
+                      key={connector.uid}
+                      onClick={() => connect({ connector })}
+                      disabled={isConnecting}
+                      className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 border border-white/10 rounded-lg text-white transition-colors disabled:opacity-50"
+                    >
+                      <Wallet className="w-5 h-5" />
+                      <span>{connector.name}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="p-4 bg-zinc-800/50 border border-white/10 rounded-lg">
+                    <p className="text-zinc-400 text-xs mb-1">Connected Wallet</p>
+                    <p className="text-white font-mono text-sm">
+                      {address?.slice(0, 6)}...{address?.slice(-4)}
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleWalletLogin}
+                    disabled={isVerifying}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-lime hover:bg-lime/90 text-zinc-900 font-semibold rounded-lg transition-colors disabled:opacity-50"
+                  >
+                    {isVerifying ? (
+                      <div className="w-5 h-5 border-2 border-zinc-900/30 border-t-zinc-900 rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <span>Sign message to verify</span>
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => disconnect()}
+                    className="w-full text-center text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                  >
+                    Disconnect wallet
+                  </button>
+                </div>
+              )}
             </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-zinc-900/50 text-zinc-500">or continue with email</span>
-            </div>
-          </div>
+          )}
 
-          {/* Form */}
+          {/* ── Email Login ── */}
+          {activeTab === 'email' && (
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email */}
             <div>
@@ -199,16 +294,9 @@ export default function LoginPage() {
               )}
             </button>
           </form>
+          )}
 
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-lime/5 border border-lime/20 rounded-lg">
-            <p className="text-sm text-lime font-medium mb-1">Demo Credentials</p>
-            <p className="text-xs text-zinc-400">
-              Email: <code className="text-zinc-300">demo@aegissentinel.online</code>
-              <br />
-              Password: <code className="text-zinc-300">demo123</code>
-            </p>
-          </div>
+          {/* Demo Credentials removed — real admin account seeded via prisma db seed */}
         </div>
 
         {/* Sign Up Link */}

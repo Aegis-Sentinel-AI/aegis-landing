@@ -8,33 +8,43 @@ import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import pg from 'pg'
-import { hash } from 'crypto'
+import bcrypt from 'bcryptjs'
 
 const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL })
 const adapter = new PrismaPg(pool)
 const prisma = new PrismaClient({ adapter })
 
-function sha256(input: string): string {
-  return hash('sha256', input, 'hex')
-}
+const BCRYPT_ROUNDS = 12
 
 async function main() {
   console.log('🌱 Seeding AegisSentinel database...\n')
 
-  // ── Users ────────────────────────────────────────
+  // ── Master Admin ─────────────────────────────────
+  const adminPassword = process.env.ADMIN_INITIAL_PASSWORD
+  if (!adminPassword) {
+    throw new Error(
+      'ADMIN_INITIAL_PASSWORD env var is required.\n' +
+      'Set it in .env or pass inline: ADMIN_INITIAL_PASSWORD=your-secure-pw npx prisma db seed',
+    )
+  }
+
   console.log('👤 Creating users...')
+  const adminHash = await bcrypt.hash(adminPassword, BCRYPT_ROUNDS)
+
   const admin = await prisma.user.upsert({
-    where: { email: 'demo@aegissentinel.online' },
-    update: {},
+    where: { email: 'admin@aegissentinel.online' },
+    update: { passwordHash: adminHash }, // always re-hash on re-seed
     create: {
-      email: 'demo@aegissentinel.online',
-      name: 'Demo User',
+      email: 'admin@aegissentinel.online',
+      name: 'Aegis Admin',
       role: 'admin',
-      passwordHash: sha256('demo123'),
+      passwordHash: adminHash,
+      walletAddress: process.env.ADMIN_WALLET_ADDRESS ?? null,
       provider: 'email',
     },
   })
 
+  const analystHash = await bcrypt.hash('analyst-change-me', BCRYPT_ROUNDS)
   const analyst = await prisma.user.upsert({
     where: { email: 'analyst@aegissentinel.online' },
     update: {},
@@ -42,7 +52,7 @@ async function main() {
       email: 'analyst@aegissentinel.online',
       name: 'Security Analyst',
       role: 'analyst',
-      passwordHash: sha256('analyst123'),
+      passwordHash: analystHash,
       provider: 'email',
     },
   })

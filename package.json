@@ -18,23 +18,31 @@
     "seed": "npx tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.11.1",
     "@prisma/adapter-pg": "^7.4.0",
     "@prisma/client": "^7.4.0",
+    "@rainbow-me/rainbowkit": "^2.2.10",
+    "@tanstack/react-query": "^5.90.21",
     "@types/dompurify": "^3.0.5",
     "@vercel/og": "^0.8.6",
+    "bcryptjs": "^3.0.3",
     "clsx": "^2.1.0",
     "d3-scale": "^4.0.2",
     "dompurify": "^3.3.1",
     "framer-motion": "^11.0.3",
     "lucide-react": "^0.323.0",
     "next": "^16.1.5",
+    "next-auth": "^4.24.13",
     "pg": "^8.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-simple-maps": "^3.0.0",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "viem": "^2.46.3",
+    "wagmi": "^3.5.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/d3-scale": "^4.0.9",
     "@types/node": "^20.11.0",
     "@types/pg": "^8.16.0",

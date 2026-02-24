@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { getToken } from 'next-auth/jwt'
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { hostname, pathname } = request.nextUrl
 
   // ─── .no → .online redirect ───
@@ -13,11 +14,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301)
   }
 
-  // ─── Auth guard for /dashboard routes ───
+  // ─── Auth guard for /dashboard routes (NextAuth JWT) ───
   if (pathname.startsWith('/dashboard')) {
-    const authCookie = request.cookies.get('aegis_auth_token')
+    const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET })
 
-    if (!authCookie?.value) {
+    if (!token) {
       const loginUrl = request.nextUrl.clone()
       loginUrl.pathname = '/login'
       loginUrl.searchParams.set('redirect', pathname)

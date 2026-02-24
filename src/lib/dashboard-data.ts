@@ -25,6 +25,18 @@ import {
   getEngineThreatCategories,
 } from '@/lib/ai-engine'
 
+// ── Seeded PRNG (M-6) — deterministic per calendar day ─
+function seededRandom(seed: number): () => number {
+  return () => {
+    seed = (seed * 16807 + 0) % 2147483647;
+    return (seed - 1) / 2147483646;
+  };
+}
+
+const daySeed = new Date().toISOString().slice(0, 10) // 'YYYY-MM-DD'
+  .split('').reduce((acc, ch) => acc * 31 + ch.charCodeAt(0), 0);
+const rand = seededRandom(Math.abs(daySeed) || 1);
+
 // ── Metrics ────────────────────────────────────────────
 export async function generateMetrics() {
   // 1. Try AI Engine
@@ -39,23 +51,23 @@ export async function generateMetrics() {
       const latest = await prisma.metricSnapshot.findFirst({ orderBy: { timestamp: 'desc' } })
       if (latest) {
         return {
-          trustScore: latest.trustScore + Math.floor(Math.random() * 3) - 1,
-          threatsBlocked: latest.threatsBlocked + Math.floor(Math.random() * 10),
-          scansCompleted: latest.scansCompleted + Math.floor(Math.random() * 5),
-          activeAlerts: Math.max(0, latest.activeAlerts + Math.floor(Math.random() * 3) - 1),
-          zkProofsGenerated: latest.zkProofsGenerated + Math.floor(Math.random() * 5),
-          onChainVerifications: latest.onChainVerifications + Math.floor(Math.random() * 3),
+          trustScore: latest.trustScore,
+          threatsBlocked: latest.threatsBlocked,
+          scansCompleted: latest.scansCompleted,
+          activeAlerts: latest.activeAlerts,
+          zkProofsGenerated: latest.zkProofsGenerated,
+          onChainVerifications: latest.onChainVerifications,
         }
       }
     } catch { /* fallback to mock */ }
   }
   return {
-    trustScore: Math.floor(Math.random() * 15) + 85,
-    threatsBlocked: Math.floor(Math.random() * 50) + 150,
-    scansCompleted: Math.floor(Math.random() * 20) + 80,
-    activeAlerts: Math.floor(Math.random() * 5) + 2,
-    zkProofsGenerated: Math.floor(Math.random() * 30) + 45,
-    onChainVerifications: Math.floor(Math.random() * 20) + 30,
+    trustScore: Math.floor(rand() * 15) + 85,
+    threatsBlocked: Math.floor(rand() * 50) + 150,
+    scansCompleted: Math.floor(rand() * 20) + 80,
+    activeAlerts: Math.floor(rand() * 5) + 2,
+    zkProofsGenerated: Math.floor(rand() * 30) + 45,
+    onChainVerifications: Math.floor(rand() * 20) + 30,
   }
 }
 

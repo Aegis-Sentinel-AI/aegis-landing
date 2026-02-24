@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
+import { useSession, signOut } from 'next-auth/react'
 import {
   Shield,
   LayoutDashboard,
@@ -22,13 +23,6 @@ import {
   Key,
 } from 'lucide-react'
 
-interface AuthUser {
-  email: string
-  name: string
-  role: string
-  authenticated: boolean
-}
-
 const navigation = [
   { name: 'Overview', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Threats', href: '/dashboard/threats', icon: AlertTriangle },
@@ -47,31 +41,23 @@ export default function DashboardShell({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
-  const [user, setUser] = useState<AuthUser | null>(null)
   const pathname = usePathname()
-  const router = useRouter()
+  const { data: session } = useSession()
 
-  useEffect(() => {
-    // Check authentication state
-    const authData = localStorage.getItem('aegis_auth')
-    if (authData) {
-      const parsed = JSON.parse(authData)
-      if (parsed.authenticated) {
-        setUser(parsed)
-      }
-    }
-  }, [])
+  const user = session?.user
+  const userName = user?.name ?? 'User'
+  const userEmail = user?.email ?? ''
 
   const handleLogout = () => {
-    localStorage.removeItem('aegis_auth')
-    document.cookie = 'aegis_auth_token=;path=/;max-age=0'
-    setUser(null)
-    router.push('/login')
+    signOut({ callbackUrl: '/login' })
   }
 
-  const userInitials = user?.name 
-    ? user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
-    : 'AS'
+  const userInitials = userName
+    .split(' ')
+    .map((n: string) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2) || 'AS'
 
   return (
     <div className="min-h-screen bg-zinc-950">
@@ -137,7 +123,7 @@ export default function DashboardShell({
                     <span className="text-lime text-sm font-medium">{userInitials}</span>
                   </div>
                   <span className="text-sm text-white hidden sm:block">
-                    {user?.name || 'Admin'}
+                    {userName}
                   </span>
                   <ChevronDown className={`w-4 h-4 text-zinc-400 transition-transform ${profileOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -152,10 +138,10 @@ export default function DashboardShell({
                     <div className="absolute right-0 mt-2 w-56 bg-zinc-800 border border-white/10 rounded-lg shadow-xl z-20 overflow-hidden">
                       {/* User Info */}
                       <div className="px-4 py-3 border-b border-white/10">
-                        <p className="text-sm font-medium text-white">{user?.name || 'Demo User'}</p>
-                        <p className="text-xs text-zinc-400 truncate">{user?.email || 'demo@aegissentinel.online'}</p>
+                        <p className="text-sm font-medium text-white">{userName}</p>
+                        <p className="text-xs text-zinc-400 truncate">{userEmail}</p>
                         <span className="inline-flex mt-1 px-2 py-0.5 text-xs bg-lime/10 text-lime rounded-full capitalize">
-                          {user?.role || 'admin'}
+                          authenticated
                         </span>
                       </div>
 
