@@ -782,13 +782,13 @@ export default function PresalePage() {
             className="mt-8 flex flex-wrap items-center justify-center gap-4"
           >
             <a
-              href="https://sepolia.etherscan.io/address/0x5cd78268dBa19cb2e41b4177f5bB526FD1dEEd1"
+              href="https://arbiscan.io/address/0x8F60e81Ca34510193D568A9a4CB4CbeF95e3F6a1"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-zinc-400 hover:text-primary transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
-              <span className="font-mono">View Contract on Etherscan</span>
+              <span className="font-mono">View Presale on Arbiscan</span>
             </a>
             <a
               href="https://docs.aegissentinel.online"
