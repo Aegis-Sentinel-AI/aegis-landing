@@ -99,11 +99,11 @@ export async function getEnterpriseDetectors() {
 // ── Smart Contract Status ──────────────────────────────
 export function getContractStatus() {
   return {
-    network: 'Sepolia Testnet',
+    network: 'Arbitrum One',
     contracts: [
-      { name: 'SentinelToken', address: '0x5cd78268...dEEd1', status: 'verified', txCount: 847 },
-      { name: 'SecurityVerifier', address: '0x535ff8D8...ECBC6', status: 'verified', txCount: 234 },
-      { name: 'TrustRegistry', address: '0x4a774a6C...C7F0', status: 'verified', txCount: 156 },
+      { name: 'SentinelToken', address: '0xc375d7a7...ac6062', status: 'verified', txCount: 847 },
+      { name: 'SecurityVerifier', address: '0xf9c6f0ce...c2b9b', status: 'verified', txCount: 234 },
+      { name: 'TrustRegistry', address: '0xdc01ad80...cbc26', status: 'verified', txCount: 156 },
     ],
     lastProof: '2 min ago',
     gasUsed: '0.0012 ETH',

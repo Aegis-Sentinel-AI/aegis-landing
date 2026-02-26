@@ -12,9 +12,10 @@ const roadmapItems = [
     items: [
       { label: 'Core AI engine (35+ threat types)', done: true },
       { label: 'ZK circuit design & prover', done: true },
-      { label: 'Smart contracts deployed (Sepolia)', done: true },
+      { label: 'Smart contracts deployed (Arbitrum One)', done: true },
       { label: 'Enterprise dashboard & landing site', done: true },
       { label: 'Technical whitepaper', done: true },
+      { label: 'Early Bird presale live ($0.015)', done: true },
     ],
   },
   {
@@ -32,8 +33,8 @@ const roadmapItems = [
     title: 'Token Launch',
     status: 'upcoming',
     items: [
-      { label: 'Uniswap public launch', done: false },
-      { label: 'Mainnet deployment', done: false },
+      { label: 'Uniswap public launch ($0.04)', done: false },
+      { label: 'Multi-chain deployment', done: false },
       { label: 'CEX listings', done: false },
     ],
   },

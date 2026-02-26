@@ -654,13 +654,13 @@ export default function DashboardPage() {
 
           {/* View on Explorer */}
           <a 
-            href="https://sepolia.etherscan.io/address/0x5cd78268AB8a8eF1F708E4aef911b211e52dEEd1"
+            href="https://arbiscan.io/address/0xc375d7a7d9de74c796f7ead6a49a9e1e23ac6062"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm text-zinc-300 hover:text-white transition-all"
           >
             <ExternalLink className="w-4 h-4" />
-            View on Etherscan
+            View on Arbiscan
           </a>
         </div>
 
