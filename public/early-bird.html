@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$AEGIS Early Bird Presale — AI Security Token</title>
+    <meta name="description" content="Early Bird presale for $AEGIS token. $0.015/token (62.5% off). Join on Arbitrum One.">
+    <meta property="og:title" content="$AEGIS Early Bird Presale">
+    <meta property="og:description" content="Early Bird presale now live. $0.015/token on Arbitrum One.">
+    <meta property="og:image" content="https://aegissentinel.online/og-presale.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1828 100%);
+            color: #e0e6ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00ff88;
+            letter-spacing: -1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .nav a {
+            color: #b0b8d4;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #00ff88;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 40px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00ff88, #00cccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            color: #a0a8c4;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Price Box */
+        .price-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 12px;
+        }
+
+        .price-item {
+            text-align: center;
+        }
+
+        .price-item .label {
+            color: #a0a8c4;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .price-item .value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+
+        .price-item .desc {
+            font-size: 13px;
+            color: #8090a8;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #a0a8c4;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(0, 255, 136, 0.02);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 8px;
+        }
+
+        .timeline h2 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #00ff88;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: #00ff88;
+            min-width: 100px;
+            font-size: 14px;
+        }
+
+        .timeline-content h4 {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .timeline-content p {
+            font-size: 13px;
+            color: #a0a8c4;
+        }
+
+        /* How to Buy */
+        .how-to-buy {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(0, 204, 204, 0.05);
+            border: 1px solid rgba(0, 204, 204, 0.2);
+            border-radius: 8px;
+        }
+
+        .how-to-buy h2 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #00cccc;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-num {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #00cccc;
+            color: #0a0e27;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: #a0a8c4;
+        }
+
+        /* CTA Buttons */
+        .cta-section {
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            margin: 0 10px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00ff88, #00cccc);
+            color: #0a0e27;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        /* Contract Info */
+        .contract-info {
+            margin: 60px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .contract-info .label {
+            color: #a0a8c4;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .contract-info .address {
+            color: #00ff88;
+            word-break: break-all;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .copy-btn {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: inherit;
+        }
+
+        .copy-btn:hover {
+            background: rgba(0, 255, 136, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(0, 255, 136, 0.1);
+            padding: 40px;
+            text-align: center;
+            color: #8090a8;
+            font-size: 13px;
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .price-box {
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .price-item .value {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">⚔️ AEGIS</div>
+        <nav class="nav">
+            <a href="#features">Features</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#how-to-buy">How to Buy</a>
+            <a href="https://discord.gg/aegissentinel" target="_blank">Discord</a>
+        </nav>
+    </header>
+
+    <main style="max-width: 1000px; margin: 0 auto; padding: 40px;">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="badge">🚀 LIVE NOW</div>
+            <h1>Early Bird Presale</h1>
+            <p class="subtitle">62.5% discount on $AEGIS token<br>AI-powered security for Web3</p>
+        </section>
+
+        <!-- Pricing -->
+        <section class="price-box">
+            <div class="price-item">
+                <div class="label">Early Bird</div>
+                <div class="value">$0.015</div>
+                <div class="desc">62.5% OFF<br>Available NOW</div>
+            </div>
+            <div class="price-item">
+                <div class="label">PinkSale (July 1)</div>
+                <div class="value">$0.022</div>
+                <div class="desc">45% OFF<br>Coming Soon</div>
+            </div>
+            <div class="price-item">
+                <div class="label">Final Round</div>
+                <div class="value">$0.032</div>
+                <div class="desc">20% OFF<br>TBD</div>
+            </div>
+            <div class="price-item">
+                <div class="label">Listing</div>
+                <div class="value">$0.040</div>
+                <div class="desc">100%<br>Uniswap/Camelot</div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features" id="features">
+            <div class="feature-card">
+                <div class="icon">🔐</div>
+                <h3>Verified Contract</h3>
+                <p>All smart contracts audited and verified on Arbiscan. Ownership transferred to multisig treasury.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⛓️</div>
+                <h3>Arbitrum One</h3>
+                <p>Deployed on Arbitrum One for low gas costs and fast transactions. 42161 Chain ID.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💎</div>
+                <h3>1B Supply</h3>
+                <p>1 billion $AEGIS total supply. Deflationary mechanics with 5 burn mechanisms.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🗓️</div>
+                <h3>Cliff Vesting</h3>
+                <p>100% unlock on January 1, 2027. Automatic claim at vesting date.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🤖</div>
+                <h3>AI Security</h3>
+                <p>$AEGIS powers the Sentinel AI engine. Real-time threat detection across Web3.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🎯</div>
+                <h3>Enterprise Use</h3>
+                <p>Subscription model for DeFi protocols. Staking rewards for node operators.</p>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline" id="timeline">
+            <h2>📅 Presale Timeline</h2>
+            <div class="timeline-item">
+                <div class="timeline-date">NOW</div>
+                <div class="timeline-content">
+                    <h4>Early Bird Round</h4>
+                    <p>$0.015/token (62.5% off) | Available to Discord members | Vesting: Jan 1, 2027</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">July 1</div>
+                <div class="timeline-content">
+                    <h4>PinkSale Round</h4>
+                    <p>$0.022/token (45% off) | Public sale on PinkSwap | Vesting: Jan 1, 2027</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">TBD</div>
+                <div class="timeline-content">
+                    <h4>Final Round</h4>
+                    <p>$0.032/token (20% off) | Limited allocation | Vesting: Jan 1, 2027</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">July 1+</div>
+                <div class="timeline-content">
+                    <h4>Token Listing</h4>
+                    <p>$0.040/token | Uniswap & Camelot on Arbitrum | Full trading opens</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Buy -->
+        <section class="how-to-buy" id="how-to-buy">
+            <h2>🛒 How to Buy Early Bird</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <p><strong>Verify Discord</strong><br>Join and verify on our Discord server</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <p><strong>Connect Wallet</strong><br>Arbitrum One network, have ETH ready</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <p><strong>Send ETH</strong><br>To presale contract address</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <p><strong>Claim at TGE</strong><br>January 1, 2027 (post-listing)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contract Info -->
+        <section class="contract-info">
+            <div class="label">Presale Contract Address (Arbitrum One)</div>
+            <div class="address" id="presale-address">0x8F60e81Ca34510193D568A9a4CB4CbeF95e3F6a1</div>
+            <button class="copy-btn" onclick="copyAddress()">Copy Address</button>
+
+            <div style="margin-top: 20px;">
+                <div class="label">Token Contract Address</div>
+                <div class="address">0xc375d7a7d9de74c796f7ead6a49a9e1e23ac6062</div>
+                <button class="copy-btn" onclick="copyToken()">Copy Address</button>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="margin-bottom: 30px; font-size: 28px;">Ready to Participate?</h2>
+            <a href="https://discord.gg/aegissentinel" target="_blank" class="btn btn-primary">Join Discord</a>
+            <a href="https://arbiscan.io/address/0x8F60e81Ca34510193D568A9a4CB4CbeF95e3F6a1" target="_blank" class="btn btn-secondary">View on Arbiscan</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>⚔️ AEGIS Sentinel | AI-Powered Web3 Security</p>
+        <p style="margin-top: 10px; color: #6070a8;">
+            <a href="https://aegissentinel.online" target="_blank">Main Site</a> •
+            <a href="https://github.com/Aegis-Sentinel-AI" target="_blank">GitHub</a> •
+            <a href="https://twitter.com/AegisSentinelAi" target="_blank">Twitter</a> •
+            <a href="https://discord.gg/aegissentinel" target="_blank">Discord</a>
+        </p>
+    </footer>
+
+    <script>
+        function copyAddress() {
+            const address = document.getElementById('presale-address').innerText;
+            navigator.clipboard.writeText(address).then(() => {
+                alert('Address copied to clipboard!');
+            });
+        }
+
+        function copyToken() {
+            const address = '0xc375d7a7d9de74c796f7ead6a49a9e1e23ac6062';
+            navigator.clipboard.writeText(address).then(() => {
+                alert('Token address copied to clipboard!');
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
