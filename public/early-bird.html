@@ -94,6 +94,72 @@
             letter-spacing: 1px;
         }
 
+        /* Countdown Timer */
+        .countdown-section {
+            text-align: center;
+            padding: 30px 20px;
+            margin: 30px 0;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 0, 80, 0.08) 100%);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 16px;
+        }
+
+        .countdown-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            min-width: 80px;
+        }
+
+        .countdown-num {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-text {
+            font-size: 11px;
+            color: #ff9a6c;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .countdown-sep {
+            font-size: 32px;
+            color: #ff6b35;
+            font-weight: 700;
+            padding-bottom: 20px;
+        }
+
+        .countdown-note {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #ff9a6c;
+            font-weight: 500;
+        }
+
         /* Price Box */
         .price-box {
             display: grid;
@@ -405,6 +471,33 @@
             <p class="subtitle">62.5% discount on $AEGIS token<br>AI-powered security for Web3</p>
         </section>
 
+        <!-- Countdown Timer -->
+        <section class="countdown-section">
+            <h3 class="countdown-label">⏳ Early Bird Closes In</h3>
+            <div class="countdown" id="countdown">
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-days">--</span>
+                    <span class="countdown-text">Days</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-hours">--</span>
+                    <span class="countdown-text">Hours</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-mins">--</span>
+                    <span class="countdown-text">Minutes</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-secs">--</span>
+                    <span class="countdown-text">Seconds</span>
+                </div>
+            </div>
+            <p class="countdown-note">After July 1, price increases 47% to $0.022</p>
+        </section>
+
         <!-- Pricing -->
         <section class="price-box">
             <div class="price-item">
@@ -577,6 +670,43 @@
                 }
             });
         });
+
+        // ── Countdown Timer ──
+        (function() {
+            const earlyBirdEnd = new Date('2026-07-01T12:00:00Z').getTime();
+            const $days = document.getElementById('cd-days');
+            const $hours = document.getElementById('cd-hours');
+            const $mins = document.getElementById('cd-mins');
+            const $secs = document.getElementById('cd-secs');
+
+            function update() {
+                const now = Date.now();
+                const diff = earlyBirdEnd - now;
+
+                if (diff <= 0) {
+                    $days.textContent = '0';
+                    $hours.textContent = '0';
+                    $mins.textContent = '0';
+                    $secs.textContent = '0';
+                    document.querySelector('.countdown-label').textContent = '🔴 Early Bird Has Ended';
+                    document.querySelector('.countdown-note').textContent = 'PinkSale round now active at $0.022';
+                    return;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                $days.textContent = String(d);
+                $hours.textContent = String(h).padStart(2, '0');
+                $mins.textContent = String(m).padStart(2, '0');
+                $secs.textContent = String(s).padStart(2, '0');
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
     </script>
 </body>
 </html>
