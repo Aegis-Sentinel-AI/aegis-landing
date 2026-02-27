@@ -43,7 +43,7 @@ When editing the email in the automation:
 
 ### Subject Line Options:
 - `You're on the $AEGIS Presale Waitlist 🎉`
-- `Welcome! Your PinkSale Presale Access is Confirmed`
+- `Welcome! Your $AEGIS Presale Access is Confirmed`
 - `🚀 You're In! $AEGIS Presale Waitlist Confirmed`
 
 ### Preview Text:
@@ -92,11 +92,11 @@ Consider adding follow-up emails:
 - Content: Explain burn mechanics, show deflationary projections
 
 ### Email 3 (Day 7): Presale Countdown
-- Subject: `PinkSale Launch Date Announced 📅`
+- Subject: `Public Presale Date Announced 📅`
 - Content: Specific date, whitelist instructions, countdown
 
 ### Email 4 (Launch Day): GO LIVE!
-- Subject: `🚨 LIVE NOW: $AEGIS Presale on PinkSale`
+- Subject: `🚨 LIVE NOW: $AEGIS Public Presale on Arbitrum`
 - Content: Direct link, how to participate, deadline
 
 ---

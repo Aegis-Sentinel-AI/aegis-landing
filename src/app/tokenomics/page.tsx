@@ -235,7 +235,7 @@ export default function TokenomicsPage() {
             viewport={{ once: true }}
             className="text-center text-sm text-zinc-500 mt-8"
           >
-            Presale via PinkSale • Public launch on Uniswap (Arbitrum)
+            Early Bird LIVE • Public presale July 2026 • Listing on Uniswap (Arbitrum)
           </motion.p>
         </div>
       </section>

@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Presale — $AEGIS Token | AegisSentinel',
-  description: 'Get up to 60% discount on $AEGIS tokens during the presale. AI-powered cybersecurity token launching Q2 2026 on Arbitrum. Limited allocation, first-come first-served.',
+  description: 'Get up to 60% discount on $AEGIS tokens during the presale. AI-powered cybersecurity token — Early Bird LIVE on Arbitrum. Limited allocation, first-come first-served.',
   openGraph: {
     title: 'Presale — $AEGIS Token | AegisSentinel',
-    description: 'Get up to 60% discount on $AEGIS tokens. AI-powered cybersecurity launching Q2 2026.',
+    description: 'Get up to 60% discount on $AEGIS tokens. AI-powered cybersecurity — Early Bird LIVE on Arbitrum.',
     url: 'https://aegissentinel.online/presale',
     images: [
       {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Presale — $AEGIS Token | AegisSentinel',
-    description: 'Get up to 60% discount on $AEGIS tokens. AI-powered cybersecurity launching Q2 2026.',
+    description: 'Get up to 60% discount on $AEGIS tokens. AI-powered cybersecurity — Early Bird LIVE on Arbitrum.',
     images: ['https://aegissentinel.online/OG-Image.png'],
   },
 }

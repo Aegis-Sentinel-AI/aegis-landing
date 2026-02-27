@@ -127,7 +127,7 @@ const faqs = [
   },
   {
     q: 'Is the presale KYC required?',
-    a: 'KYC is handled by PinkSale during the presale process. This ensures regulatory compliance across jurisdictions.',
+    a: 'No KYC required — the Early Bird presale is a trustless smart contract on Arbitrum One. Simply send ETH to the verified presale contract.',
   },
   {
     q: 'What happens if a round sells out early?',

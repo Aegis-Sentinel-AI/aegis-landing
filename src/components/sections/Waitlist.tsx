@@ -65,7 +65,7 @@ export default function Waitlist() {
                 Join the Presale Waitlist
               </h2>
               <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-                Get early access to the $AEGIS token presale on PinkSale. 
+                Get early access to the $AEGIS token — Early Bird presale is LIVE on Arbitrum One. 
                 Exclusive pricing for waitlist members.
               </p>
 

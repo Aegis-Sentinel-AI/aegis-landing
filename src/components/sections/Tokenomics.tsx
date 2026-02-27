@@ -24,7 +24,7 @@ const tokenUtilities = [
     description: 'Stake $AEGIS to earn yield from protocol fees and secure the network.',
     stats: [
       { label: 'Target APY', value: '8-12%' },
-      { label: 'Launch', value: 'Q2 2026' },
+      { label: 'Launch', value: 'LIVE' },
     ],
   },
   {
@@ -42,7 +42,7 @@ const tokenUtilities = [
 
 const tokenMetrics = [
   { label: 'Total Supply', value: '1,000,000,000', suffix: '$AEGIS' },
-  { label: 'Early Bird Price', value: '$0.015', suffix: 'Q2 2026' },
+  { label: 'Early Bird Price', value: '$0.015', suffix: 'LIVE' },
   { label: 'Listing Price', value: '$0.04', suffix: 'Uniswap (Arbitrum)' },
 ]
 

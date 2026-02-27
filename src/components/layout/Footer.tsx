@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Shield, Twitter, Github, MessageCircle, Send } from 'lucide-react'
+import { Shield, Twitter, Github, MessageCircle } from 'lucide-react'
 
 const footerLinks = {
   protocol: [
@@ -30,7 +30,6 @@ const footerLinks = {
 const socialLinks = [
   { icon: Twitter, href: 'https://x.com/AegisSentinelAi', label: 'X' },
   { icon: MessageCircle, href: 'https://discord.gg/aG5XwyV7sV', label: 'Discord' },
-  { icon: Send, href: 'https://t.me/AegisSentinelAi', label: 'Telegram' },
   { icon: Github, href: 'https://github.com/Aegis-Sentinel-AI', label: 'GitHub' },
 ]
 
