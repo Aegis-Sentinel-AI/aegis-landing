@@ -99,7 +99,7 @@ export default function RootLayout({
         sameAs: [
           'https://x.com/AegisSentinelAi',
           'https://github.com/AegisSentinel',
-          'https://discord.gg/Z5NcWtqB',
+          'https://discord.gg/aG5XwyV7sV',
         ],
         description: 'AI-driven cybersecurity protocol for Web3. Real-time threat detection, zero-knowledge proofs, and L2 blockchain verification.',
       },
