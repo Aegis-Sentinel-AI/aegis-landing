@@ -1,50 +1,12 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Shield, MessageCircle } from 'lucide-react'
 
-export default function Waitlist() {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
-  const [waitlistCount, setWaitlistCount] = useState(847)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
-    setErrorMessage('')
-
-    try {
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to join waitlist')
-      }
-
-      // Success
-      setStatus('success')
-      setWaitlistCount((prev) => prev + 1)
-      setEmail('')
-
-      setTimeout(() => setStatus('idle'), 4000)
-    } catch (error) {
-      setStatus('error')
-      setErrorMessage(error instanceof Error ? error.message : 'Something went wrong')
-      setTimeout(() => setStatus('idle'), 4000)
-    }
-  }
-
+export default function CommunityJoin() {
   return (
-    <section id="waitlist" className="py-24 lg:py-32 relative">
+    <section id="community" className="py-24 lg:py-32 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
       
@@ -62,67 +24,44 @@ export default function Waitlist() {
 
             <div className="relative">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Join the Presale Waitlist
+                Join the Community
               </h2>
               <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-                Get early access to the $AEGIS token — Early Bird presale is LIVE on Arbitrum One. 
-                Exclusive pricing for waitlist members.
+                Early Bird is LIVE at $0.015/token on Arbitrum One. Join our Discord for 
+                real-time updates, security alerts, and direct access to the team.
               </p>
 
-              <form onSubmit={handleSubmit} className="mb-6">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your work email"
-                    required
-                    disabled={status === 'loading' || status === 'success'}
-                    className="flex-1 px-5 py-4 glass border border-white/10 rounded-lg text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary/50 transition-colors disabled:opacity-50"
-                  />
-                  <button
-                    type="submit"
-                    disabled={status === 'loading' || status === 'success'}
-                    className="btn-primary px-8 py-4 justify-center disabled:opacity-80"
-                  >
-                    {status === 'loading' && (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Joining...
-                      </>
-                    )}
-                    {status === 'success' && (
-                      <>
-                        <CheckCircle2 className="w-5 h-5 text-lime" />
-                        You're In!
-                      </>
-                    )}
-                    {(status === 'idle' || status === 'error') && (
-                      <>
-                        Join Waitlist
-                        <ArrowRight className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-                <p className="text-xs text-zinc-500 mt-3">
-                  No spam. Unsubscribe anytime.
-                </p>
-                {status === 'error' && (
-                  <p className="text-xs text-red-400 mt-2 flex items-center justify-center gap-1">
-                    <AlertCircle className="w-3 h-3" />
-                    {errorMessage}
-                  </p>
-                )}
-              </form>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Link
+                  href="https://discord.gg/aG5XwyV7sV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary px-8 py-4 justify-center"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Join Discord
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/early-bird.html"
+                  className="btn-secondary px-8 py-4 justify-center"
+                >
+                  <Shield className="w-5 h-5" />
+                  Early Bird Details
+                </Link>
+              </div>
 
               <div className="flex items-center justify-center gap-4 text-sm text-zinc-400">
                 <span>
-                  <strong className="text-white">{waitlistCount.toLocaleString()}</strong> on waitlist
+                  <strong className="text-white">$0.015</strong>/token
                 </span>
                 <span>•</span>
                 <span>
-                  <strong className="text-white">12</strong> enterprise pilots
+                  <strong className="text-white">62.5%</strong> off listing
+                </span>
+                <span>•</span>
+                <span>
+                  <strong className="text-white">Arbitrum One</strong>
                 </span>
               </div>
             </div>

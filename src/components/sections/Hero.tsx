@@ -51,7 +51,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-lime" />
               </span>
-              <span className="text-sm text-zinc-400">Presale Coming Soon</span>
+              <span className="text-sm text-zinc-400">Early Bird LIVE</span>
             </motion.div>
 
             {/* Headline */}
@@ -85,8 +85,8 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12"
             >
-              <Link href="#waitlist" className="btn-primary text-base px-8 py-4">
-                Get Early Access
+              <Link href="/early-bird.html" className="btn-primary text-base px-8 py-4">
+                Join Early Bird
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link

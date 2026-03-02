@@ -10,7 +10,7 @@ const navLinks = [
   { href: '#how-it-works', label: 'How It Works' },
   { href: '#features', label: 'Features' },
   { href: '#tokenomics', label: 'Tokenomics' },
-  { href: '/presale', label: 'Presale', highlight: true },
+  { href: '/early-bird.html', label: 'Early Bird', highlight: true },
   { href: '/login', label: 'Portal' },
   { href: 'https://docs.aegissentinel.online', label: 'Docs', external: true },
 ]
@@ -85,8 +85,8 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden xl:block flex-shrink-0">
-            <Link href="#waitlist" className="btn-primary text-sm whitespace-nowrap">
-              Join Waitlist
+            <Link href="https://discord.gg/aG5XwyV7sV" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm whitespace-nowrap">
+              Join Discord
             </Link>
           </div>
 
@@ -124,11 +124,13 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="#waitlist"
+                href="https://discord.gg/aG5XwyV7sV"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary w-full justify-center mt-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Join Waitlist
+                Join Discord
               </Link>
             </div>
           </motion.div>

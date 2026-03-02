@@ -19,21 +19,21 @@ const roadmapItems = [
     ],
   },
   {
-    quarter: 'Q2 2026',
-    title: 'Presale Launch',
+    quarter: 'Q2–Q4 2026',
+    title: 'Pre-Sale',
     status: 'active',
     items: [
-      { label: 'Token presale (3 rounds)', done: false },
+      { label: 'Pre-Sale at $0.022 (Jul 1 – Dec 31)', done: false },
       { label: 'Internal security audit', done: true },
       { label: 'Enterprise pilot program', done: false },
     ],
   },
   {
-    quarter: 'Q3 2026',
-    title: 'Token Launch',
+    quarter: 'Q1 2027',
+    title: 'Listing & Token Unlock',
     status: 'upcoming',
     items: [
-      { label: 'Uniswap public launch ($0.04)', done: false },
+      { label: 'DEX listing at $0.04 (Jan 1, 2027)', done: false },
       { label: 'Multi-chain deployment', done: false },
       { label: 'CEX listings', done: false },
     ],
