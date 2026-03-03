@@ -3,7 +3,8 @@
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
-import { useAccount, useSignMessage, useConnect, useDisconnect } from 'wagmi'
+// Wallet hooks kept for future re-enablement
+// import { useAccount, useSignMessage, useConnect, useDisconnect } from 'wagmi'
 import Link from 'next/link'
 import {
   Shield,
@@ -14,7 +15,6 @@ import {
   ArrowRight,
   Wallet,
   User,
-  CheckCircle2,
   AlertCircle,
 } from 'lucide-react'
 
@@ -44,13 +44,13 @@ function LoginContent() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(authError === 'CredentialsSignin' ? 'Invalid email or password' : '')
 
-  // Wallet connection
-  const { address, isConnected } = useAccount()
-  const { connectors, connect, isPending: isConnecting } = useConnect()
-  const { disconnect } = useDisconnect()
-  const { signMessageAsync } = useSignMessage()
-  const [isVerifying, setIsVerifying] = useState(false)
-  const [walletSuccess, setWalletSuccess] = useState(false)
+  // Wallet connection — disabled while wallet auth is under development
+  // const { address, isConnected } = useAccount()
+  // const { connectors, connect, isPending: isConnecting } = useConnect()
+  // const { disconnect } = useDisconnect()
+  // const { signMessageAsync } = useSignMessage()
+  // const [isVerifying, setIsVerifying] = useState(false)
+  // const [walletSuccess, setWalletSuccess] = useState(false)
 
   // ── Email login handler ──
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,7 +77,8 @@ function LoginContent() {
     }
   }
 
-  // ── Wallet login handler ──
+  // ── Wallet login handler — disabled while wallet auth is under development ──
+  /*
   const handleWalletLogin = async () => {
     if (!address) return
 
@@ -113,6 +114,7 @@ function LoginContent() {
       setIsVerifying(false)
     }
   }
+  */
 
   return (
     <div className="min-h-screen bg-zinc-950 flex items-center justify-center px-4 relative overflow-hidden">
@@ -170,60 +172,59 @@ function LoginContent() {
             </button>
           </div>
 
-          {/* ── Wallet Login ── */}
+          {/* ── Wallet Login — Coming Soon ── */}
           {activeTab === 'wallet' && (
             <div className="space-y-4">
-              {walletSuccess ? (
-                <div className="flex flex-col items-center gap-3 py-8">
-                  <CheckCircle2 className="w-12 h-12 text-lime" />
-                  <p className="text-white font-medium">Wallet verified!</p>
-                  <p className="text-zinc-400 text-sm">Redirecting to dashboard...</p>
+              <div className="flex flex-col items-center justify-center py-8 space-y-4">
+                <div className="w-16 h-16 bg-zinc-800 border border-white/10 rounded-2xl flex items-center justify-center">
+                  <Wallet className="w-8 h-8 text-zinc-500" />
                 </div>
-              ) : !isConnected ? (
-                <div className="space-y-3">
-                  <p className="text-zinc-400 text-sm text-center mb-4">Connect your wallet to sign in</p>
-                  {connectors.map((connector) => (
-                    <button
-                      key={connector.uid}
-                      onClick={() => connect({ connector })}
-                      disabled={isConnecting}
-                      className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 border border-white/10 rounded-lg text-white transition-colors disabled:opacity-50"
-                    >
-                      <Wallet className="w-5 h-5" />
-                      <span>{connector.name}</span>
-                    </button>
-                  ))}
+                <div className="text-center space-y-2">
+                  <h3 className="text-lg font-semibold text-white">Coming Soon</h3>
+                  <p className="text-sm text-zinc-400 max-w-xs">
+                    Wallet-based authentication and on-chain verification are currently under development.
+                  </p>
                 </div>
-              ) : (
-                <div className="space-y-4">
-                  <div className="p-4 bg-zinc-800/50 border border-white/10 rounded-lg">
-                    <p className="text-zinc-400 text-xs mb-1">Connected Wallet</p>
-                    <p className="text-white font-mono text-sm">
-                      {address?.slice(0, 6)}...{address?.slice(-4)}
-                    </p>
-                  </div>
-                  <button
-                    onClick={handleWalletLogin}
-                    disabled={isVerifying}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-lime hover:bg-lime/90 text-zinc-900 font-semibold rounded-lg transition-colors disabled:opacity-50"
+              </div>
+
+              {/* What's coming */}
+              <div className="rounded-lg bg-zinc-800/50 border border-white/10 p-4 space-y-3">
+                <p className="text-xs font-medium text-zinc-300">What to expect:</p>
+                <ul className="space-y-2 text-xs text-zinc-400">
+                  <li className="flex items-start gap-2">
+                    <Shield className="h-3.5 w-3.5 text-lime mt-0.5 flex-shrink-0" />
+                    Connect your wallet on Arbitrum One
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Shield className="h-3.5 w-3.5 text-lime mt-0.5 flex-shrink-0" />
+                    Sign a message to verify ownership
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Shield className="h-3.5 w-3.5 text-lime mt-0.5 flex-shrink-0" />
+                    On-chain subscription verification via Arbiscan
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Shield className="h-3.5 w-3.5 text-lime mt-0.5 flex-shrink-0" />
+                    Access AI-powered threat detection dashboard
+                  </li>
+                </ul>
+              </div>
+
+              {/* Discord link */}
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-4">
+                <p className="text-xs text-zinc-400 text-center">
+                  Join our Discord for updates on wallet login:
+                  <br />
+                  <a
+                    href="https://discord.gg/aG5XwyV7sV"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 mt-1 text-lime hover:text-lime/80 font-medium"
                   >
-                    {isVerifying ? (
-                      <div className="w-5 h-5 border-2 border-zinc-900/30 border-t-zinc-900 rounded-full animate-spin" />
-                    ) : (
-                      <>
-                        <span>Sign message to verify</span>
-                        <ArrowRight className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                  <button
-                    onClick={() => disconnect()}
-                    className="w-full text-center text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
-                  >
-                    Disconnect wallet
-                  </button>
-                </div>
-              )}
+                    discord.gg/aG5XwyV7sV
+                  </a>
+                </p>
+              </div>
             </div>
           )}
 
