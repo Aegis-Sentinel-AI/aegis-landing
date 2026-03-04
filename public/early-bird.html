@@ -284,40 +284,258 @@
             padding: 40px;
             background: rgba(0, 204, 204, 0.05);
             border: 1px solid rgba(0, 204, 204, 0.2);
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .how-to-buy h2 {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 24px;
+            margin-bottom: 10px;
             color: #00cccc;
+        }
+
+        .how-to-buy > .section-intro {
+            font-size: 15px;
+            color: #a0a8c4;
+            margin-bottom: 30px;
+            line-height: 1.7;
         }
 
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 0;
         }
 
         .step {
-            text-align: center;
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0, 204, 204, 0.1);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .step-num {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
             background: #00cccc;
             color: #0a0e27;
             border-radius: 50%;
-            line-height: 40px;
             font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .step-line {
+            width: 2px;
+            flex: 1;
+            background: rgba(0, 204, 204, 0.15);
+            margin-top: 8px;
+        }
+
+        .step:last-child .step-line {
+            display: none;
+        }
+
+        .step-content h4 {
+            font-size: 17px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #a0a8c4;
+            line-height: 1.7;
+        }
+
+        .step-content .step-tip {
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: rgba(0, 204, 204, 0.08);
+            border-left: 3px solid #00cccc;
+            border-radius: 0 6px 6px 0;
+            font-size: 13px;
+            color: #b0c8d4;
+        }
+
+        .step-content .step-tip strong {
+            color: #00cccc;
+        }
+
+        /* Why Arbitrum */
+        .why-arbitrum {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(40, 120, 255, 0.05);
+            border: 1px solid rgba(40, 120, 255, 0.2);
+            border-radius: 12px;
+        }
+
+        .why-arbitrum h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #5599ff;
+        }
+
+        .why-arbitrum > .section-intro {
+            font-size: 15px;
+            color: #a0a8c4;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .arb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .arb-card {
+            background: rgba(40, 120, 255, 0.06);
+            border: 1px solid rgba(40, 120, 255, 0.15);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .arb-card .arb-icon {
+            font-size: 24px;
             margin-bottom: 10px;
         }
 
-        .step p {
+        .arb-card h4 {
+            font-size: 15px;
+            color: #5599ff;
+            margin-bottom: 6px;
+        }
+
+        .arb-card p {
             font-size: 13px;
             color: #a0a8c4;
+            line-height: 1.6;
+        }
+
+        /* What Happens After */
+        .after-purchase {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(160, 100, 255, 0.05);
+            border: 1px solid rgba(160, 100, 255, 0.2);
+            border-radius: 12px;
+        }
+
+        .after-purchase h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #a070ff;
+        }
+
+        .after-purchase > .section-intro {
+            font-size: 15px;
+            color: #a0a8c4;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .after-timeline {
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid rgba(160, 100, 255, 0.3);
+        }
+
+        .after-item {
+            position: relative;
+            margin-bottom: 28px;
+            padding-left: 20px;
+        }
+
+        .after-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .after-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background: #a070ff;
+            border-radius: 50%;
+            border: 3px solid #1a1f3a;
+        }
+
+        .after-item h4 {
+            font-size: 15px;
+            color: #a070ff;
+            margin-bottom: 2px;
+        }
+
+        .after-item .after-date {
+            font-size: 12px;
+            color: #7060a0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .after-item p {
+            font-size: 14px;
+            color: #a0a8c4;
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(255, 180, 0, 0.04);
+            border: 1px solid rgba(255, 180, 0, 0.15);
+            border-radius: 12px;
+        }
+
+        .faq h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: #ffb400;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 180, 0, 0.1);
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 15px;
+            color: #ffc840;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: #a0a8c4;
+            line-height: 1.7;
         }
 
         /* CTA Buttons */
@@ -580,26 +798,291 @@
             </div>
         </section>
 
-        <!-- How to Buy -->
+        <!-- How to Buy — Expanded -->
         <section class="how-to-buy" id="how-to-buy">
-            <h2>🛒 How to Buy Early Bird</h2>
+            <h2>🛒 How to Buy $AEGIS — Step by Step</h2>
+            <p class="section-intro">
+                The Early Bird presale runs directly on Arbitrum One through a verified smart contract. 
+                You send ETH, the contract records your allocation on-chain, and your tokens become claimable on listing day. 
+                Here's exactly how it works:
+            </p>
+
             <div class="steps">
                 <div class="step">
-                    <div class="step-num">1</div>
-                    <p><strong>Verify Discord</strong><br>Join and verify on our Discord server</p>
+                    <div class="step-left">
+                        <div class="step-num">1</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Set Up a Web3 Wallet</h4>
+                        <p>
+                            You'll need a Web3 wallet like <strong>MetaMask</strong>, <strong>Rabby</strong>, or any WalletConnect-compatible wallet. 
+                            If you don't have one, install 
+                            <a href="https://metamask.io" target="_blank" style="color: #00cccc;">MetaMask</a> 
+                            as a browser extension or mobile app — it takes about 2 minutes.
+                        </p>
+                        <div class="step-tip">
+                            <strong>Important:</strong> Write down your seed phrase and store it securely offline. This is the only way to recover your wallet if you lose access. Never share it with anyone.
+                        </div>
+                    </div>
                 </div>
+
                 <div class="step">
-                    <div class="step-num">2</div>
-                    <p><strong>Connect Wallet</strong><br>Arbitrum One network, have ETH ready</p>
+                    <div class="step-left">
+                        <div class="step-num">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Add the Arbitrum One Network</h4>
+                        <p>
+                            $AEGIS lives on <strong>Arbitrum One</strong> (Chain ID: 42161), an Ethereum Layer 2 network. 
+                            Your wallet needs to be connected to this network to interact with the presale contract.
+                        </p>
+                        <div class="step-tip">
+                            <strong>Quick add:</strong> Visit 
+                            <a href="https://chainlist.org/chain/42161" target="_blank" style="color: #00cccc;">chainlist.org/chain/42161</a> 
+                            and click "Add to MetaMask" — it auto-configures the network settings for you. 
+                            Or add manually: RPC <code style="color:#00cccc;">https://arb1.arbitrum.io/rpc</code>, Chain ID <code style="color:#00cccc;">42161</code>, Symbol <code style="color:#00cccc;">ETH</code>.
+                        </div>
+                    </div>
                 </div>
+
                 <div class="step">
-                    <div class="step-num">3</div>
-                    <p><strong>Send ETH</strong><br>To presale contract address</p>
+                    <div class="step-left">
+                        <div class="step-num">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Get ETH on Arbitrum One</h4>
+                        <p>
+                            You need ETH on the Arbitrum network to buy tokens and pay gas fees (which are very low — typically under $0.10). 
+                            There are two ways to get ETH on Arbitrum:
+                        </p>
+                        <div class="step-tip">
+                            <strong>Option A — Bridge from Ethereum:</strong> If you already hold ETH on Ethereum mainnet, use the 
+                            <a href="https://bridge.arbitrum.io" target="_blank" style="color: #00cccc;">official Arbitrum Bridge</a> 
+                            to move it to Arbitrum One. Bridging takes around 10 minutes.
+                        </div>
+                        <div class="step-tip" style="margin-top: 8px;">
+                            <strong>Option B — Buy directly:</strong> Use an exchange that supports Arbitrum withdrawals 
+                            (Binance, Coinbase, Kraken, Bybit) and withdraw ETH directly to your Arbitrum One wallet address. 
+                            This avoids bridging entirely.
+                        </div>
+                    </div>
                 </div>
+
                 <div class="step">
-                    <div class="step-num">4</div>
-                    <p><strong>Claim on Listing Day</strong><br>January 1, 2027 — tokens unlock &amp; trading opens</p>
+                    <div class="step-left">
+                        <div class="step-num">4</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Send ETH to the Presale Contract</h4>
+                        <p>
+                            Once you have ETH on Arbitrum, simply send it to the presale contract address below. 
+                            The smart contract automatically calculates your $AEGIS allocation at the current rate of 
+                            <strong>1 ETH ≈ 133,333 AEGIS</strong> (based on the $0.015 price and current ETH price). 
+                            Your allocation is recorded on-chain immediately.
+                        </p>
+                        <div class="step-tip">
+                            <strong>How it works on-chain:</strong> When the contract receives your ETH, it emits a <code style="color:#00cccc;">Purchase</code> event 
+                            containing your wallet address and token allocation. You can verify your purchase instantly on 
+                            <a href="https://arbiscan.io/address/0x8F60e81Ca34510193D568A9a4CB4CbeF95e3F6a1" target="_blank" style="color: #00cccc;">Arbiscan</a>.
+                            There is no minimum purchase — any amount of ETH works.
+                        </div>
+                    </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-left">
+                        <div class="step-num">5</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Wait for Listing Day — January 1, 2027</h4>
+                        <p>
+                            Your tokens are locked in the presale contract until the Token Generation Event (TGE) on 
+                            <strong>January 1, 2027</strong>. On that date, token trading begins on Uniswap and Camelot DEX 
+                            at the listing price of $0.040, and your tokens become claimable.
+                        </p>
+                        <div class="step-tip">
+                            <strong>No action needed until then.</strong> Your allocation is safely stored in the smart contract. 
+                            On listing day, you'll call the <code style="color:#00cccc;">claim()</code> function (or we'll provide a simple claim page) 
+                            and your $AEGIS tokens will be sent directly to your wallet. 
+                            Early Bird buyers effectively bought at 62.5% below the listing price.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Arbitrum -->
+        <section class="why-arbitrum" id="why-arbitrum">
+            <h2>🔷 Why Arbitrum One?</h2>
+            <p class="section-intro">
+                You might wonder why $AEGIS is on Arbitrum instead of Ethereum mainnet. 
+                Arbitrum One is an Ethereum Layer 2 — it inherits Ethereum's security while offering 
+                dramatically lower fees and faster transactions. Here's why we chose it:
+            </p>
+
+            <div class="arb-grid">
+                <div class="arb-card">
+                    <div class="arb-icon">⚡</div>
+                    <h4>Near-Zero Gas Fees</h4>
+                    <p>Transactions on Arbitrum cost $0.01–$0.10 instead of $5–$50+ on Ethereum mainnet. 
+                    This means buying $AEGIS costs almost nothing in fees.</p>
+                </div>
+                <div class="arb-card">
+                    <div class="arb-icon">🔒</div>
+                    <h4>Ethereum Security</h4>
+                    <p>Arbitrum is a "rollup" — all transactions are ultimately verified and settled on Ethereum L1. 
+                    Your tokens have the same security guarantees as Ethereum mainnet.</p>
+                </div>
+                <div class="arb-card">
+                    <div class="arb-icon">🏎️</div>
+                    <h4>Fast Confirmations</h4>
+                    <p>Transactions confirm in about 1 second on Arbitrum, compared to 12–15 seconds on Ethereum. 
+                    Your purchase is confirmed almost instantly.</p>
+                </div>
+                <div class="arb-card">
+                    <div class="arb-icon">🌐</div>
+                    <h4>Largest L2 Ecosystem</h4>
+                    <p>Arbitrum has the highest TVL of any L2 (~$18B+). Major DeFi protocols like Uniswap, Aave, and GMX 
+                    are all here — meaning deep liquidity for $AEGIS at listing.</p>
+                </div>
+                <div class="arb-card">
+                    <div class="arb-icon">🔗</div>
+                    <h4>Same Wallet, Same ETH</h4>
+                    <p>You use the same wallet address and same ETH as Ethereum mainnet. 
+                    No new token to buy — just switch your wallet to the Arbitrum network.</p>
+                </div>
+                <div class="arb-card">
+                    <div class="arb-icon">🤖</div>
+                    <h4>Built for AI Security</h4>
+                    <p>Our AI engine anchors threat verdicts on-chain. Low fees on Arbitrum make it viable to write 
+                    thousands of security proofs daily — something impossible on L1.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Happens After You Buy -->
+        <section class="after-purchase" id="after-purchase">
+            <h2>📦 What Happens After You Buy?</h2>
+            <p class="section-intro">
+                Once you send ETH to the presale contract, here's the complete timeline of what happens 
+                with your investment — from purchase to tradeable tokens in your wallet.
+            </p>
+
+            <div class="after-timeline">
+                <div class="after-item">
+                    <h4>Purchase Confirmed On-Chain</h4>
+                    <div class="after-date">Immediately</div>
+                    <p>
+                        The smart contract records your wallet address and $AEGIS allocation in its internal ledger. 
+                        A <code style="color:#a070ff;">Purchase</code> event is emitted on-chain — you can see it on Arbiscan within seconds. 
+                        The ETH you sent is held in the presale contract.
+                    </p>
+                </div>
+
+                <div class="after-item">
+                    <h4>Tokens Locked in Vesting</h4>
+                    <div class="after-date">Feb 26, 2026 — Jan 1, 2027</div>
+                    <p>
+                        Your tokens stay in the presale contract — they can't be moved, traded, or transferred until the vesting date. 
+                        This protects all participants from early dumping and ensures fair distribution at listing. 
+                        The vesting date is hardcoded in the smart contract and cannot be changed by anyone.
+                    </p>
+                </div>
+
+                <div class="after-item">
+                    <h4>Pre-Sale Round Opens (Price Increases)</h4>
+                    <div class="after-date">July 1, 2026</div>
+                    <p>
+                        The Early Bird round closes and the price increases from $0.015 to $0.022 (+47%). 
+                        New buyers pay the higher price. Your Early Bird allocation stays locked at the original discount.
+                    </p>
+                </div>
+
+                <div class="after-item">
+                    <h4>Token Generation Event &amp; Listing</h4>
+                    <div class="after-date">January 1, 2027</div>
+                    <p>
+                        This is the big day. $AEGIS begins trading on <strong>Uniswap</strong> and <strong>Camelot DEX</strong> 
+                        on Arbitrum One at the listing price of <strong>$0.040</strong>. Liquidity pools are deployed, 
+                        and your tokens become claimable.
+                    </p>
+                </div>
+
+                <div class="after-item">
+                    <h4>Claim Your Tokens</h4>
+                    <div class="after-date">January 1, 2027 onwards</div>
+                    <p>
+                        Connect the same wallet you used to purchase. Call the <code style="color:#a070ff;">claim()</code> function on the presale contract 
+                        (we'll provide a one-click claim page). Your $AEGIS tokens are transferred from the contract to your wallet. 
+                        From there, you can hold, trade on DEXes, stake for rewards, or use them to access the Sentinel AI platform.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq" id="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h4>What exactly am I buying?</h4>
+                <p>
+                    You're buying an allocation of $AEGIS tokens at a discounted price. $AEGIS is the native utility token 
+                    of the Aegis Sentinel platform — an AI-powered cybersecurity protocol for Web3. The token powers 
+                    platform subscriptions, staking rewards, governance, and on-chain security verdicts.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is this safe? How do I know my tokens are secure?</h4>
+                <p>
+                    The presale contract is verified and open-source on 
+                    <a href="https://arbiscan.io/address/0x8F60e81Ca34510193D568A9a4CB4CbeF95e3F6a1#code" target="_blank" style="color: #ffb400;">Arbiscan</a>. 
+                    Anyone can read the code. Your allocation is stored on the Arbitrum blockchain — it cannot be altered, 
+                    deleted, or tampered with. The 150 million AEGIS tokens allocated for presale are already loaded into 
+                    the contract and verifiable on-chain.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I get a refund?</h4>
+                <p>
+                    The presale contract does not have a refund function — all sales are final, as is standard for 
+                    on-chain token sales. This is why we encourage you to only invest what you're comfortable with.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is there a minimum or maximum purchase?</h4>
+                <p>
+                    There is no minimum — any amount of ETH works. There is no maximum cap per wallet, 
+                    but the total Early Bird allocation is 150 million AEGIS (15% of total supply).
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if I've never used crypto before?</h4>
+                <p>
+                    We recommend joining our 
+                    <a href="https://discord.gg/aG5XwyV7sV" target="_blank" style="color: #ffb400;">Discord server</a> 
+                    where our community can help you through the process step by step. 
+                    The basics: install MetaMask, buy ETH from an exchange (Coinbase, Binance, Kraken), 
+                    send it to your Arbitrum wallet, and then send it to our presale contract.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What happens if the listing is delayed?</h4>
+                <p>
+                    The vesting date (January 1, 2027) is locked in the smart contract. If for any reason 
+                    the public listing hasn't happened by then, token holders can still claim their tokens 
+                    on-chain — the claim function activates automatically at the hardcoded timestamp.
+                </p>
             </div>
         </section>
 
