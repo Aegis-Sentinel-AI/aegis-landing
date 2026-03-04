@@ -643,30 +643,274 @@
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                padding: 20px;
-                gap: 20px;
+                padding: 15px;
+                gap: 12px;
             }
 
             .nav {
-                flex-direction: column;
-                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 16px;
+            }
+
+            main {
+                padding: 20px 14px !important;
             }
 
             .hero {
-                padding: 40px 20px;
+                padding: 30px 10px;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
 
+            .hero .subtitle {
+                font-size: 16px;
+            }
+
+            /* Countdown mobile */
+            .countdown-section {
+                padding: 20px 12px;
+                margin: 20px 0;
+            }
+
+            .countdown-label {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+
+            .countdown {
+                gap: 4px;
+            }
+
+            .countdown-unit {
+                min-width: 60px;
+                padding: 10px 6px;
+                border-radius: 8px;
+            }
+
+            .countdown-num {
+                font-size: 26px;
+            }
+
+            .countdown-text {
+                font-size: 9px;
+            }
+
+            .countdown-sep {
+                font-size: 22px;
+                padding-bottom: 14px;
+            }
+
+            .countdown-note {
+                font-size: 12px;
+            }
+
+            /* Price box mobile */
             .price-box {
-                padding: 20px;
+                padding: 20px 16px;
                 gap: 20px;
+                grid-template-columns: 1fr;
             }
 
             .price-item .value {
                 font-size: 24px;
+            }
+
+            /* Features mobile */
+            .features {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin: 30px 0;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            /* Timeline mobile */
+            .timeline {
+                padding: 20px 16px;
+                margin: 30px 0;
+            }
+
+            .timeline h2 {
+                font-size: 18px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .timeline-date {
+                min-width: auto;
+            }
+
+            /* How to Buy mobile */
+            .how-to-buy {
+                padding: 24px 16px;
+                margin: 30px 0;
+            }
+
+            .how-to-buy h2 {
+                font-size: 20px;
+            }
+
+            .step {
+                grid-template-columns: 40px 1fr;
+                gap: 12px;
+                padding: 16px 0;
+            }
+
+            .step-num {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .step-content h4 {
+                font-size: 15px;
+            }
+
+            .step-content p {
+                font-size: 13px;
+            }
+
+            .step-content .step-tip {
+                font-size: 12px;
+                padding: 8px 10px;
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+
+            .step-content .step-tip code {
+                word-break: break-all;
+            }
+
+            /* Why Arbitrum mobile */
+            .why-arbitrum {
+                padding: 24px 16px;
+                margin: 30px 0;
+            }
+
+            .why-arbitrum h2 {
+                font-size: 20px;
+            }
+
+            .arb-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .arb-card {
+                padding: 16px;
+            }
+
+            /* After purchase mobile */
+            .after-purchase {
+                padding: 24px 16px;
+                margin: 30px 0;
+            }
+
+            .after-purchase h2 {
+                font-size: 20px;
+            }
+
+            .after-timeline {
+                padding-left: 18px;
+            }
+
+            .after-item {
+                padding-left: 14px;
+                margin-bottom: 20px;
+            }
+
+            .after-item::before {
+                left: -25px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .after-item p {
+                font-size: 13px;
+            }
+
+            /* FAQ mobile */
+            .faq {
+                padding: 24px 16px;
+                margin: 30px 0;
+            }
+
+            .faq h2 {
+                font-size: 20px;
+            }
+
+            .faq-item h4 {
+                font-size: 14px;
+            }
+
+            .faq-item p {
+                font-size: 13px;
+            }
+
+            /* CTA mobile */
+            .cta-section {
+                margin: 40px 0;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px 0;
+                padding: 14px 24px;
+            }
+
+            /* Contract info mobile */
+            .contract-info {
+                padding: 20px 14px;
+                margin: 30px 0;
+            }
+
+            .contract-info .address {
+                font-size: 11px;
+            }
+
+            /* Footer mobile */
+            footer {
+                padding: 30px 16px;
+                margin-top: 40px;
+            }
+        }
+
+        /* Extra small screens (under 400px) */
+        @media (max-width: 400px) {
+            .countdown-unit {
+                min-width: 50px;
+                padding: 8px 4px;
+            }
+
+            .countdown-num {
+                font-size: 22px;
+            }
+
+            .countdown-sep {
+                font-size: 18px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .step {
+                grid-template-columns: 34px 1fr;
+                gap: 10px;
+            }
+
+            .step-num {
+                width: 32px;
+                height: 32px;
+                font-size: 13px;
             }
         }
     </style>
